@@ -46,11 +46,16 @@ void InsertAfter(node* head, int num)
     head->next = temp;
 }
 
-void InsertBefore(node* head, int num)
+void InsertBefore(node* head, node* index, int num)
 {
     node* temp = new node;
+    node* walker = head;
     temp->item = num;
-    temp->next =
+
+    while(walker->next != index && walker->next != NULL)
+        walker = walker->next;
+    temp->next = walker->next;
+    walker->next = temp;
 }
 
 void Print(node *head)

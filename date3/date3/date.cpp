@@ -4,6 +4,10 @@ date::date()
 {
     totaldays = 1;
     day_to_date();
+    //same as :
+    // day = 1;
+    // month = 1;
+    // year = 1;
 }
 
 date::date(int new_day, int new_month, int new_year)
@@ -52,8 +56,6 @@ void date::day_to_date()
             temp_days--; // subtract 1 day if that year has 366 days
         year++;
     }
-//    temp_days--; //why - 1 here?
-
     if(leapyear(year) == true) {
         while(temp_days > monthA_leap[month])
             month++;
