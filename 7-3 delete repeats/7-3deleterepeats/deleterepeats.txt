@@ -1,0 +1,3 @@
+AABACBDCCAEDCCBAA
+ABCDE
+Press <RETURN> to close this window...

@@ -1,0 +1,67 @@
+###testing StrLen###
+string one: hello
+StrLen(one)...
+string length = 5
+
+
+###testing StrCpy###
+string one before: hello
+StrCpy(one, "bye bye")...
+string one after : bye bye
+
+
+###testing StrCat###
+string one : bye bye
+string two :  world!
+StrCat(one,two)...
+one cat two : bye bye world!
+
+
+###testing StrCmp###
+string comp1 : hello
+string comp2 : hellfire
+StrCmp(comp1, comp2)...
+StrCmp : 1
+StrCmp(comp2, comp1)...
+StrCmp : -1
+StrCmp(comp1, comp1)...
+StrCmp : 0
+
+
+###testing SubStr###
+main string : substring function
+taking out "string" from "substring function".
+SubStr(mainstr, substr, 3, 6)...
+substring : string
+
+
+###testing Find###
+string : find function
+character : u
+pos : 6
+
+
+###testing FindStr###
+main string : find string from this
+string : string
+pos : 5
+
+
+Press <RETURN> to close this window...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

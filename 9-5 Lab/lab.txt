@@ -1,0 +1,102 @@
+Lab Number          Computer Station Numbers
+lab 0               0 : empty   1 : empty       2 : empty       3 : empty       4 : empty
+lab 1               0 : empty   1 : empty       2 : empty       3 : empty       4 : empty       5 : empty
+lab 2               0 : empty   1 : empty       2 : empty       3 : empty
+lab 3               0 : empty   1 : empty       2 : empty
+
+
+
+~~~~~Menu~~~~~
+1 : Login
+2 : Logout
+3 : Search
+4 : Availability
+1
+~Login~
+
+row : 1
+
+col : 1
+item : 12345
+lab 0               0 : empty   1 : empty       2 : empty       3 : empty       4 : empty
+lab 1               0 : empty   1 : 12345       2 : empty       3 : empty       4 : empty       5 : empty
+lab 2               0 : empty   1 : empty       2 : empty       3 : empty
+lab 3               0 : empty   1 : empty       2 : empty
+
+repeat?
+'Y' for yes
+y
+
+
+~~~~~Menu~~~~~
+1 : Login
+2 : Logout
+3 : Search
+4 : Availability
+3
+~Search~
+
+item : 12345
+address found : 0x75116c
+item found : 12345
+row : 1   col : 1
+repeat?
+'Y' for yes
+y
+
+
+~~~~~Menu~~~~~
+1 : Login
+2 : Logout
+3 : Search
+4 : Availability
+4
+~Availability~
+
+row : 1
+
+col : 1
+the station is not available
+
+repeat?
+'Y' for yes
+y
+
+
+~~~~~Menu~~~~~
+1 : Login
+2 : Logout
+3 : Search
+4 : Availability
+4
+~Availability~
+
+row : 1
+
+col : 0
+the station is available
+
+repeat?
+'Y' for yes
+y
+
+
+~~~~~Menu~~~~~
+1 : Login
+2 : Logout
+3 : Search
+4 : Availability
+2
+~Logout~
+
+row : 1
+
+col : 1
+lab 0               0 : empty   1 : empty       2 : empty       3 : empty       4 : empty
+lab 1               0 : empty   1 : empty       2 : empty       3 : empty       4 : empty       5 : empty
+lab 2               0 : empty   1 : empty       2 : empty       3 : empty
+lab 3               0 : empty   1 : empty       2 : empty
+
+repeat?
+'Y' for yes
+

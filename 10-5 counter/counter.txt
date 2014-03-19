@@ -1,0 +1,44 @@
+'0-9' sets a new int
+'a' : add
+'s' : subtract
+
+4
+a
+5
+a
+6
+a
+7
+s
+6
+s
+5
+s
+4
+s
+3
+s
+2
+s
+1
+s
+0
+s
+0
+s
+0
+s
+0
+s
+0
+s
+0
+a
+1
+a
+2
+a
+3
+a
+4
+

@@ -1,0 +1,141 @@
+  ~~~~~ Airbus 1337 ~~~~~
+
+Number of rows the plane has : 10
+
+row 0       0  0  0  0
+row 1       0  0  0  0
+row 2       0  0  0  0
+row 3       0  0  0  0
+row 4       0  0  0  0
+row 5       0  0  0  0
+row 6       0  0  0  0
+row 7       0  0  0  0
+row 8       0  0  0  0
+row 9       0  0  0  0
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:1
+
+
+~Reserve~
+
+row : 1
+
+col : 1
+row 0       0  0  0  0
+row 1       0  1  0  0
+row 2       0  0  0  0
+row 3       0  0  0  0
+row 4       0  0  0  0
+row 5       0  0  0  0
+row 6       0  0  0  0
+row 7       0  0  0  0
+row 8       0  0  0  0
+row 9       0  0  0  0
+
+
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:2
+
+
+~Cancel~
+
+row : 1
+
+col : 1
+row 0       0  0  0  0
+row 1       0  0  0  0
+row 2       0  0  0  0
+row 3       0  0  0  0
+row 4       0  0  0  0
+row 5       0  0  0  0
+row 6       0  0  0  0
+row 7       0  0  0  0
+row 8       0  0  0  0
+row 9       0  0  0  0
+
+
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:3
+
+
+~Availability~
+
+row : 0
+
+col : 0
+the seat is available
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:1
+
+
+~Reserve~
+
+row : 3
+
+col : 3
+row 0       0  0  0  0
+row 1       0  0  0  0
+row 2       0  0  0  0
+row 3       0  0  0  1
+row 4       0  0  0  0
+row 5       0  0  0  0
+row 6       0  0  0  0
+row 7       0  0  0  0
+row 8       0  0  0  0
+row 9       0  0  0  0
+
+
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:3
+
+
+~Availability~
+
+row : 3
+
+col : 3
+the seat is not available
+
+
+
+~~~~~Menu~~~~~
+1 : Reserve
+2 : Cancel
+3 : Availability
+
+:

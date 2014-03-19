@@ -1,0 +1,7 @@
+~~~testing Reverse~~~
+Array : R E V E R S E
+processing Reverse(cPtr)...
+Array : E S R E V E R
+
+
+Press <RETURN> to close this window...

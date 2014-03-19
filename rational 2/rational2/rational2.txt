@@ -1,0 +1,28 @@
+: -1/2
+: 3/0
+
+rational 1: -1/2
+rational 2: divide by zero
+
+
+A + B = divide by zero
+
+
+A - B = divide by zero
+
+
+A x B = divide by zero
+
+
+A / B = 0/6
+
+
+A < B
+
+A != B
+-1/2 != divide by zero
+
+-A: 1/2
+
+Press <RETURN> to close this window...
+

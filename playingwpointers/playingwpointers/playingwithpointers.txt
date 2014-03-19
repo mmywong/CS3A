@@ -1,0 +1,15 @@
+FOR INTEGERS
+address : 0x28fe90
+value : 10
+
+FOR CHARACTERS
+without (*) : a
+with (*) : a
+
+FOR INT ARRAYS
+1 2 3
+
+FOR CHAR ARRAYS
+hello world!
+
+Press <RETURN> to close this window...

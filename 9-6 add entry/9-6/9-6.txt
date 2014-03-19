@@ -1,0 +1,18 @@
+<++++++++++++Michi's Pokedex+++++++++++++>
+
+===Entry===
+size: 1    name: Articuno
+
+
+===Entry===
+size: 2    name: Articuno
+size: 2    name: Bulbasaur
+
+
+===Entry===
+size: 3    name: Articuno
+size: 3    name: Bulbasaur
+size: 3    name: Charmander
+
+
+Press <RETURN> to close this window...

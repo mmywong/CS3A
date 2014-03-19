@@ -1,0 +1,8 @@
+int* Allocate()
+int** Allocate()
+int Read(int** twoD, int row, int col, int* sizes)
+void Write(int** twoD, int row, int col, int* sizes, int item)
+bool Verify(int** twoD, int row, int col, int* sizes)
+void Delete(int** twoD, int row, int col, int* sizes, int item)
+void Search(int** twoD, int row, int col, int* sizes, int item)
+void Print(int** twoD, int row, int col, int* sizes)

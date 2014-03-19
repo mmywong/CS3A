@@ -1,0 +1,49 @@
+~~~~~Line Generator~~~~~
+
+Point A :
+1
+2
+(1,2)
+
+Point B :
+3
+4
+(3,4)
+
+equation : y = 1x + 1
+
+length : 2.82843
+slope : 1
+y-intercept : (1,0)
+x-intercept : (0,-1)
+
+
+
+~~~~~Triangle Generator~~~~
+
+Point A :
+0
+0
+(0,0)
+
+Point B :
+3
+4
+(3,4)
+
+Point C :
+3
+0
+(3,0)
+
+perimeter : 12
+area : 6
+angle at point A : 53.1301
+angle at point B : 36.8699
+angle at point C : 90
+equiangular : no
+isoceles : no
+right triangle : yes
+
+
+Press <RETURN> to close this window...

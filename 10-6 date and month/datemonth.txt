@@ -1,0 +1,29 @@
+1 : int to string
+2 : string to int
+3 : next month
+1
+month number :
+2
+feb
+
+repeat? Y:yes
+y
+1 : int to string
+2 : string to int
+3 : next month
+2
+month name :
+sep
+9
+
+repeat? Y:yes
+y
+1 : int to string
+2 : string to int
+3 : next month
+3
+current month : feb
+current month 2 : 9
+next month : mar
+next month 2: 10
+repeat? Y:yes

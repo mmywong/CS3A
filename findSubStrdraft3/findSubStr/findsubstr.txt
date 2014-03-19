@@ -1,0 +1,5 @@
+main string : helloprofessor
+sub string : prof
+starting position : 1
+sub string found in main string starting from position : 5
+Press <RETURN> to close this window...
