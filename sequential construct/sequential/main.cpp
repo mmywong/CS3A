@@ -7,19 +7,30 @@ struct node{
     node* next;
 };
 
-node* InsertHead(node* head, int num);
-void InsertAfter(node* head, int num);
-void InsertBefore(node* head, int num);
+void InsertHead(node *&head, int num);
+void InsertAfter(node* marker, int num);
+void InsertBefore(node* head, node* marker, int num);
 void Print(node* head);
+//node* Remove(node* head, node* marker);
+//void Delete(node* head, node* marker);
+//void InsertSorted(node* head, int num);
+//void Sort(node* head);
 
 int main()
 {
     node* mainhead = NULL;
-    mainhead = InsertHead(mainhead, 1);
-    mainhead = InsertHead(mainhead, 2);
-    InsertAfter(mainhead,9);
-    mainhead = InsertHead(mainhead, 3);
-    mainhead = InsertHead(mainhead, 4);
+
+    InsertHead(mainhead, 1); // first node
+
+    node* marker = mainhead;
+
+    InsertAfter(marker, 2);
+    marker = mainhead;
+    InsertAfter(marker, 3);
+    marker = mainhead;
+    InsertAfter(marker, 4);
+//    InsertBefore(mainhead,marker,0);
+    InsertAfter(marker, 5);
     Print(mainhead);
 
     cout << endl << endl;
@@ -27,32 +38,32 @@ int main()
     return 0;
 }
 
-node* InsertHead(node* head, int num)
+void InsertHead(node*& head, int num)
 {
     node* temp = new node;
 
     temp->item = num;
     temp->next = head;
     head = temp;
-
-    return head;
 }
 
-void InsertAfter(node* head, int num)
+void InsertAfter(node* marker, int num)
 {
     node* temp = new node;
     temp->item = num;
-    temp->next = head->next;
-    head->next = temp;
+    temp->next = marker->next;
+    marker->next = temp;
 }
 
-void InsertBefore(node* head, node* index, int num)
+void InsertBefore(node* head, node* marker, int num)
 {
+//    if(marker = head)
+//        return NULL;
     node* temp = new node;
     node* walker = head;
     temp->item = num;
 
-    while(walker->next != index && walker->next != NULL)
+    while(walker->next != marker && walker->next != NULL)
         walker = walker->next;
     temp->next = walker->next;
     walker->next = temp;
