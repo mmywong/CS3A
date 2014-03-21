@@ -8,7 +8,7 @@ struct node{
 };
 
 void InsertHead(node *&head, int num);
-void InsertAfter(node* marker, int num);
+void InsertAfter(node *marker, int num);
 void InsertBefore(node* head, node* marker, int num);
 void Print(node* head);
 //node* Remove(node* head, node* marker);
@@ -25,10 +25,11 @@ int main()
     node* marker = mainhead;
 
     InsertAfter(marker, 2);
-    marker = mainhead;
+    marker= marker->next;
     InsertAfter(marker, 3);
-    marker = mainhead;
+    marker = marker->next;
     InsertAfter(marker, 4);
+    marker = marker->next;
 //    InsertBefore(mainhead,marker,0);
     InsertAfter(marker, 5);
     Print(mainhead);

@@ -1,7 +1,6 @@
 # Qt-es
 
 #decided to include Qt
-#*.pro
 *.h.autosave
 *.cpp.autosave
 *.pro.user
