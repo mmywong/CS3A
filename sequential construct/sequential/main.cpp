@@ -27,12 +27,17 @@ int main()
  */
     L.Print();
 
-    cout<< endl<<endl<<endl;
+    cout<< endl << endl << endl;
 
     list B(L);
 
     B.Print();
 
+    cout << endl << endl << endl;
+
+    list C;
+    C = B;
+    C.Print();
     cout << endl << endl;
 
     return 0;

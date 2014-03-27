@@ -25,9 +25,20 @@ list::list(list &copythis)
     }
 }
 
-const list &list::operator =(list &right)
+const list &list::operator = (list &right)
 {
  // if C=B, return C
+    InsertHead(right.head->item);
+    node* marker = right.head;
+    node* marker2 = head;
+    head->next = NULL;
+    marker = marker->next;
+    while(marker != NULL)
+    {
+        Append(marker->item);
+        marker = marker->next;
+        marker2 = marker2->next;
+    }
 }
 
 list::~list()
