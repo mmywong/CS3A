@@ -29,15 +29,8 @@ int main()
 
     cout<< endl << endl << endl;
 
-    list B(L);
+    cout << L.Ithnode(1)->item;
 
-    B.Print();
-
-    cout << endl << endl << endl;
-
-    list C;
-    C = B;
-    C.Print();
     cout << endl << endl;
 
     return 0;

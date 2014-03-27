@@ -27,7 +27,6 @@ list::list(list &copythis)
 
 const list &list::operator = (list &right)
 {
- // if C=B, return C
     InsertHead(right.head->item);
     node* marker = right.head;
     node* marker2 = head;
