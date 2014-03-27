@@ -5,13 +5,15 @@ using namespace std;
 
 int main()
 {
-    node* mainhead = NULL;
-
     list L;
-    L.InsertHead(mainhead, 1); // first node
+    L.InsertHead(1); // first node
 
-    node* marker = mainhead;
+    L.Append(2);
+    L.Append(3);
+    L.Append(4);
+    L.InsertAfter(L.Begin(),5);
 
+    /*
     L.InsertAfter(marker, 2);
     marker = marker->next;
     L.InsertAfter(marker, 3);
@@ -22,7 +24,14 @@ int main()
 
     L.InsertAfter(marker, 5);
     L.Remove(mainhead,marker);
-    L.Print(mainhead);
+ */
+    L.Print();
+
+    cout<< endl<<endl<<endl;
+
+    list B(L);
+
+    B.Print();
 
     cout << endl << endl;
 

@@ -3,28 +3,47 @@
 
 using namespace std;
 
+//---constructor---//
 list::list()
 {
     head = NULL;
 }
 
-list::list(const list &copy)
+//---big three---//
+list::list(list &copythis)
 {
-
+    InsertHead(copythis.head->item);
+    node* marker = copythis.head;
+    node* marker2 = head;
+    head->next = NULL;
+    marker = marker->next;
+    while(marker != NULL)
+    {
+        Append(marker->item);
+        marker = marker->next;
+        marker2 = marker2->next;
+    }
 }
 
 const list &list::operator =(list &right)
 {
-
+ // if C=B, return C
 }
 
 list::~list()
 {
-
+     node* marker = End();
+     while(marker != head)
+     {
+         delete marker;
+         marker = End();
+     }
+     delete marker;
+     head = NULL;
 }
 
-
-void list::InsertHead(node*& head, int num)
+//---create---//
+void list::InsertHead(int num)
 {
     node* temp = new node;
 
@@ -41,7 +60,7 @@ void list::InsertAfter(node* marker, int num)
     marker->next = temp;
 }
 
-void list::InsertBefore(node* head, node* marker, int num)
+void list::InsertBefore(node* marker, int num)
 {
 //    if(marker = head)
 //        return NULL;
@@ -55,18 +74,14 @@ void list::InsertBefore(node* head, node* marker, int num)
     walker->next = temp;
 }
 
-void list::Print(node *head)
+void list::Append(int num)
 {
-    node* walker = head;
-    while(walker != NULL)
-    {
-        cout<<"["<<walker->item<<"]-->";
-        walker = walker->next;
-    }
-    cout<<"||||";
+    node* marker = End();
+    InsertAfter(marker, num);
 }
 
-node* list::Remove(node* head, node* marker)
+//---delete---//
+node* list::Remove(node* marker)
 {
     node* walker = head;
 
@@ -78,11 +93,53 @@ node* list::Remove(node* head, node* marker)
     return marker;
 }
 
-int list::Delete(node* head, node* marker)
+int list::Delete(node* marker)
 {
     int temp; // value that's in marker
     temp = marker->item;
-    Remove(head,marker);
+    Remove(marker);
     delete marker;
     return temp;
 }
+
+//---show---//
+void list::Print()
+{
+    node* walker = head;
+    while(walker != NULL)
+    {
+        cout<<"["<<walker->item<<"]-->";
+        walker = walker->next;
+    }
+    cout<<"||||";
+}
+
+//---sort---//
+
+//---markers---//
+node* list::Begin()
+{
+    return head;
+}
+
+node* list::End()
+{
+    node* walker = head;
+    while(walker->next != NULL)
+        walker = walker->next;
+    return walker;
+}
+
+node* list::Ithnode(int i)
+{
+    node* walker = head;
+    for(int j=0; j<i; j++)
+       walker = walker->next; // makes walker point at the node we want
+    return walker; // returns the address of the Ith node
+}
+
+node *list::WhereThisGoes(int i)
+{
+
+}
+
