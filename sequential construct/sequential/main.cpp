@@ -1,5 +1,6 @@
 #include <iostream>
 #include "list.h"
+#include "iterator.h"
 
 using namespace std;
 
@@ -26,11 +27,12 @@ int main()
     L.Remove(mainhead,marker);
  */
     L.Print();
-
-    cout<< endl << endl << endl;
-
-    cout << L.Ithnode(1)->item;
-
+    cout<<endl<<endl;
+    node* walker;
+    walker = L.Remove(L.Ithnode(2));
+    cout << walker->item;
+//    L.Delete(L.Ithnode(2));
+    L.Print();
     cout << endl << endl;
 
     return 0;

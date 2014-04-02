@@ -1,4 +1,5 @@
 #include "list.h"
+#include "iterator.h"
 #include <iostream>
 
 using namespace std;
@@ -13,8 +14,8 @@ list::list()
 list::list(list &copythis)
 {
     InsertHead(copythis.head->item);
-    node* marker = copythis.head;
-    node* marker2 = head;
+    iterator marker = copythis.head;
+    iterator marker2 = head;
     head->next = NULL;
     marker = marker->next;
     while(marker != NULL)
@@ -28,8 +29,8 @@ list::list(list &copythis)
 const list &list::operator = (list &right)
 {
     InsertHead(right.head->item);
-    node* marker = right.head;
-    node* marker2 = head;
+    iterator marker = right.head;
+    iterator marker2 = head;
     head->next = NULL;
     marker = marker->next;
     while(marker != NULL)
@@ -42,7 +43,7 @@ const list &list::operator = (list &right)
 
 list::~list()
 {
-     node* marker = End();
+     iterator marker = End();
      while(marker != head)
      {
          delete marker;
@@ -55,27 +56,27 @@ list::~list()
 //---create---//
 void list::InsertHead(int num)
 {
-    node* temp = new node;
+    iterator temp = new node;
 
     temp->item = num;
     temp->next = head;
     head = temp;
 }
 
-void list::InsertAfter(node* marker, int num)
+void list::InsertAfter(iterator marker, int num)
 {
-    node* temp = new node;
+    iterator temp = new node;
     temp->item = num;
     temp->next = marker->next;
     marker->next = temp;
 }
 
-void list::InsertBefore(node* marker, int num)
+void list::InsertBefore(iterator marker, int num)
 {
 //    if(marker = head)
 //        return NULL;
-    node* temp = new node;
-    node* walker = head;
+    iterator temp = new node;
+    iterator walker = head;
     temp->item = num;
 
     while(walker->next != marker && walker->next != NULL)
@@ -86,24 +87,28 @@ void list::InsertBefore(node* marker, int num)
 
 void list::Append(int num)
 {
-    node* marker = End();
+    iterator marker = End();
     InsertAfter(marker, num);
 }
 
 //---delete---//
-node* list::Remove(node* marker)
+iterator list::Remove(iterator marker)
 {
-    node* walker = head;
+    iterator walker = head;
 
-    while(walker->next != marker && walker->next != NULL) // finds the position before marker
-        walker = walker->next;
-
-    walker->next = marker->next; // makes the previous point at the node after marker
-
+    if(marker = head) // case that you want to remove head
+        head = head->next;
+    else // case that you want to remove something from pos 1 onwards
+    {
+        while(walker->next != marker && walker->next != NULL) // finds the position before marker
+            walker = walker->next;
+        walker->next = marker->next; // makes the previous point at the node after marker
+    }
+    marker->next = NULL;
     return marker;
 }
 
-int list::Delete(node* marker)
+int list::Delete(iterator marker)
 {
     int temp; // value that's in marker
     temp = marker->item;
@@ -112,10 +117,18 @@ int list::Delete(node* marker)
     return temp;
 }
 
+iterator list::Search(int key)
+{
+    iterator marker = head;
+    while((marker != NULL) && (marker->item != key))
+        marker = marker->next;
+    return marker; // if item is not found, marker will point at NULL and return NULL
+}
+
 //---show---//
 void list::Print()
 {
-    node* walker = head;
+    iterator walker = head;
     while(walker != NULL)
     {
         cout<<"["<<walker->item<<"]-->";
@@ -124,32 +137,60 @@ void list::Print()
     cout<<"||||";
 }
 
+
 //---sort---//
+void list::Sort() // calls insert sorted until everything is inserted
+{
+    list newlist;
+    newlist.InsertHead(head->item);
+    marker = head;
+    marker = marker->next; // check this later
+    while(head != NULL)
+    {
+        InsertSorted(newlist, marker->item); // potential bug: repeats first node twice because marker hasn't moved
+    }
+}
+
+void list::InsertSorted(list newlist, int num) // inserts one node
+{
+    iterator newmarker = newlist.head;
+    iterator marker = Remove(head);
+    while((newmarker != NULL) && (marker->item <= newmarker->item))
+    {
+    if((marker->item) <= (newmarker->item))
+        InsertBefore(newmarker,marker->item);
+    else // value is greater than
+        InsertAfter(newmarker, marker->item);
+    }
+    //&& (i < marker->item)
+}
 
 //---markers---//
-node* list::Begin()
+iterator list::Begin()
 {
     return head;
 }
 
-node* list::End()
+iterator list::End()
 {
-    node* walker = head;
+    iterator walker = head;
     while(walker->next != NULL)
         walker = walker->next;
     return walker;
 }
 
-node* list::Ithnode(int i)
+iterator list::Ithnode(int i)
 {
-    node* walker = head;
+    iterator walker = head;
     for(int j=0; j<i; j++)
        walker = walker->next; // makes walker point at the node we want
     return walker; // returns the address of the Ith node
 }
 
+/*
 node *list::WhereThisGoes(int i)
 {
-
-}
-
+    node* marker = head;
+    while((marker != NULL) && (i < marker->item))
+        marker = marker->next;
+}*/

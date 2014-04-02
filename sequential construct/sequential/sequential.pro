@@ -4,8 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    list.cpp
+    list.cpp \
+    iterator.cpp
 
 HEADERS += \
-    list.h
+    list.h \
+    iterator.h
 

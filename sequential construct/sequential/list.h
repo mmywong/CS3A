@@ -1,10 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-
-struct node{
-    int item;
-    node* next;
-};
+#include "iterator.h"
 
 class list
 {
@@ -17,27 +13,30 @@ public:
     ~list();  //destructor
 
     //---create---//
-    void InsertHead(int num);
-    void InsertAfter(node *marker, int num); // makes a node to the right of marker's node
-    void InsertBefore(node* marker, int num); // makes a node to the left of marker's node
+    void InsertHead(int num);//must return a node*
+    void InsertAfter(iterator marker, int num); // makes a node to the right of marker's node
+    void InsertBefore(iterator marker, int num); // makes a node to the left of marker's node
     void Append(int num); // makes a node at the very end of the list
 
-    //---delete---//
-    node* Remove(node* marker);
-    int Delete(node* marker); // returns the item you deleted
+    //---delete---//``
+    iterator Remove(iterator marker);
+    int Delete(iterator marker); // returns the item you deleted
+
+    //---search---//
+    iterator Search(int key);
 
     //---show---//
     void Print();
 
     //---sort---//
-    void InsertSorted(node* head, int num);
-    void Sort(node* head);
+    void InsertSorted(list newlist, int num);
+    void Sort();
 
     //---markers---//
-    node* Begin();
-    node* End();
-    node* Ithnode(int i);
-    node* WhereThisGoes(int i);
+    iterator Begin();
+    iterator End();
+    iterator Ithnode(int i);
+    iterator WhereThisGoes(int i);
 
 private:
     node* head;
