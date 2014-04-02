@@ -9,5 +9,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     list.h \
-    iterator.h
+    iterator.h \
+    node.h
 

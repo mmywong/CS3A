@@ -1,51 +1,59 @@
-#include "iterator.h"
+#include "Iterator.h"
 #include <iostream>
 
-iterator::iterator()
+Iterator::Iterator()
 {
     nodeptr = NULL;
 }
 
-bool iterator::IsNull()
+Iterator::Iterator(node *p)
 {
-    if(iterator.nodeptr == NULL)
+    nodeptr = p;
+}
+
+Iterator::Iterator(const Iterator &p){
+    nodeptr = p.nodeptr;
+}
+
+bool Iterator::IsNull() const
+{
+    if(nodeptr == NULL)
         return true;
     else
         return false;
 }
 
-iterator iterator::Next()
-{
-    nodeptr = nodeptr->next;
-    return nodeptr;
-}
 
-bool iterator::operator ==(const iterator& itr1, const iterator& itr2)
+bool Iterator::operator ==(const Iterator& itr)
 {
-    if(itr1.nodeptr == itr2.nodeptr)
+    if(nodeptr == itr.nodeptr)
         return true;
     else
         return false;
 }
 
-int iterator::operator *()
+int& Iterator::operator *() //pass by reference so that the value is changed (note case : *Iterator = 100)
 {
     return nodeptr->item;
 }
 
-iterator iterator::operator ++(iterator itr, int i)
+Iterator Iterator::operator ++(int) // postfix
 {
-    int counter = 0;
-    while(counter != i)
-    {
-        itr.nodeptr = itr.nodeptr->next;
-        counter++;
-    }
-    return itr;
+    Iterator tempitr;
+    tempitr.nodeptr = nodeptr;
+    nodeptr = nodeptr->next;
+    return tempitr;
 }
 
-iterator iterator::operator ++(iterator &itr)
+Iterator &Iterator::operator ++() // prefix
 {
+    nodeptr = nodeptr->next;
+    return *this;
+}
+
+Iterator Iterator::Next() const
+{
+    Iterator itr;
     itr.nodeptr = itr.nodeptr->next;
     return itr;
 }

@@ -1,6 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-#include "iterator.h"
+#include "Iterator.h"
 
 class list
 {
@@ -14,31 +14,42 @@ public:
 
     //---create---//
     void InsertHead(int num);//must return a node*
-    void InsertAfter(iterator marker, int num); // makes a node to the right of marker's node
-    void InsertBefore(iterator marker, int num); // makes a node to the left of marker's node
+    void InsertAfter(Iterator marker, int num); // makes a node to the right of marker's node
+    void InsertBefore(Iterator marker, int num); // makes a node to the left of marker's node
     void Append(int num); // makes a node at the very end of the list
 
     //---delete---//``
-    iterator Remove(iterator marker);
-    int Delete(iterator marker); // returns the item you deleted
+    int Delete(Iterator marker); // returns the item you deleted
 
     //---search---//
-    iterator Search(int key);
+    Iterator Search(int key);
 
     //---show---//
-    void Print();
+    void Print() const;
+
+    //---change---//
+    int& operator [](int index);
 
     //---sort---//
     void InsertSorted(list newlist, int num);
     void Sort();
 
     //---markers---//
-    iterator Begin();
-    iterator End();
-    iterator Ithnode(int i);
-    iterator WhereThisGoes(int i);
+    Iterator Begin();
+    Iterator End();
+    Iterator Ithnode(int i);
+
 
 private:
+    //---node ---//
+    //public fx should not have node* everywhere
+    //private fx can have node* because user has no access
+    //use these node* in private to write public functions
+    node* Remove(node* marker);
+    node* nEnd();
+    //node* WhereThisGoes(int i);
+
+
     node* head;
 };
 
