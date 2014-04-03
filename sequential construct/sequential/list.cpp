@@ -43,6 +43,12 @@ const list &list::operator = (list &right)
 
 list::~list()
 {
+    while(head)
+    {
+        Delete(head);
+    }
+    head = NULL;
+    /*
      node* marker = nEnd();
      while(marker != head)
      {
@@ -51,6 +57,7 @@ list::~list()
      }
      delete marker;
      head = NULL;
+    */
 }
 
 //---create---//
@@ -96,7 +103,7 @@ node* list::Remove(node* marker)
 {
     node* walker = head;
 
-    if(marker = head) // case that you want to remove head
+    if(marker == head) // case that you want to remove head
         head = head->next;
     else // case that you want to remove something from pos 1 onwards
     {
@@ -134,7 +141,7 @@ void list::Print() const
         cout<<"["<<walker->item<<"]-->";
         walker = walker->next;
     }
-    cout << endl;
+    cout << "||||";
 }
 
 int &list::operator [](int index)
