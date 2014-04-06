@@ -12,8 +12,37 @@ date::date(int new_day, int new_month, int new_year)
     month = new_month;
     year = new_year;
 }
+/*
+date date::operator +(const date &d1, const date &d2)
+{
 
-//---  date --> days  ---//
+}
+
+date date::operator +(const date &d1, int num)
+{
+
+}
+
+date date::operator -(const date &d1, const date &d2)
+{
+
+}
+
+date date::operator -(const date &d1, int num)
+{
+
+}
+*/
+date &date::operator ++(date &d1)
+{
+    // date to days, then days++, then days to date
+    totaldays = d1.total_nod();
+    totaldays += 1;
+    d1.day_to_date();
+    return d1;
+}
+
+//---  date --> days  ---//     (includes only first day, not the last day)
 int date::nod_years()
 {
     int leapyears;
@@ -35,7 +64,7 @@ int date::total_nod() // date --> days
     return totaldays;
 }
 
-//---  days --> date  ---//
+//---  days --> date  ---// (includes first and last day)
 void date::day_to_date()
 {
     day = 0;
@@ -63,7 +92,7 @@ void date::day_to_date()
         totaldays -= monthA[month-1];
     }
 
-    day = totaldays;
+    day = totaldays; //including first and last day
 }
 
 
@@ -104,7 +133,7 @@ istream& operator >>(istream &in, date &date1)
 
 ostream& operator <<(ostream &out, const date &date3)
 {
-    out<<date3.day<<"/"<<date3.month<<"/"<<date3.year << " ,days : " << date3.totaldays;
+    out<<date3.day<<"/"<<date3.month<<"/"<<date3.year;
     return out;
 }
 
