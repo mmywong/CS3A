@@ -14,7 +14,7 @@ public:
 
     //---operators---//
 
-    bool operator ==     (const Iterator& itr); // checks if they are the same
+    bool operator ==            (const Iterator& itr); // checks if they are the same
     int& operator *             (); // dereference
 
     Iterator operator ++        (int); //postfix (always has dummy variable)

@@ -43,15 +43,52 @@ int main()
 
     cout << "testing Delete : " << endl;
     int i;
-    //walker is pointig at 9
+    //walker is pointing at 9
     i = L.Delete(walker);
     cout << "iterator's value : " << i << endl;
     cout << "list : ";
     L.Print();
     cout << endl << endl;
 
+    cout << "testing Search : 8" << endl;
+    int search = L.Search(8);
+    cout << "search is found at position : "<< search << endl;
 
-    cout << "End of program" << endl;
+    cout << "testing Search : 7" << endl;
+    int search2 = L.Search(7);
+    cout << "search is found at position : "<< search2 << endl;
+    cout << endl;
+
+    cout << "testing [] operator :"<< endl;
+    cout << "L[2] : " << L[2] << endl;
+    cout << "putting L[2] = 10 : " << endl;
+    L[2] = 10;
+    cout << "L[2] : " << L[2] << endl;
+    L.Print();
+    cout << endl << endl;
+
+    cout << "testing Begin : "<<endl;
+    cout << *(L.Begin()) << endl;
+    cout << endl;
+
+    cout << "testing End : " << endl;
+    cout << *(L.End()) << endl << endl;
+
+    cout << "testing Ithnode(4) : " << endl;
+    cout << *(L.Ithnode(4)) << endl << endl;
+
+    cout << "testing Sort : " << endl;
+    list L3;
+    L3.InsertHead(6);
+    L3.Append(5);
+    L3.Append(3);
+    L3.Append(4);
+    L3.Append(1);
+    L3.Print();
+    cout << endl;
+    L3.Sort();
+    L3.Print();
+    cout << endl << endl;
 
     return 0;
 }

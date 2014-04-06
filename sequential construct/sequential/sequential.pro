@@ -5,10 +5,12 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     list.cpp \
-    iterator.cpp
+    iterator.cpp \
+    sortedlist.cpp
 
 HEADERS += \
     list.h \
     iterator.h \
-    node.h
+    node.h \
+    sortedlist.h
 
