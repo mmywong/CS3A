@@ -6,48 +6,68 @@ date::date()
     day_to_date();
 }
 
+date::date(int total_days)
+{
+    totaldays = total_days;
+
+}
+
 date::date(int new_day, int new_month, int new_year)
 {
     day = new_day;
     month = new_month;
     year = new_year;
 }
-/*
-date date::operator +(const date &d1, const date &d2)
+
+//wrong function
+//date date::operator +(const date &d1, const date &d2)
+//{
+//    date result;
+//    result.totaldays = d1.totaldays + d2.totaldays;
+//    result.day_to_date();
+//    return result;
+//}
+
+date operator +(date &d1, int num)
 {
-
-}
-
-date date::operator +(const date &d1, int num)
-{
-
-}
-
-date date::operator -(const date &d1, const date &d2)
-{
-
-}
-
-date date::operator -(const date &d1, int num)
-{
-
-}
-*/
-date& date::operator ++(date& d1) // prefix
-{
-    // date to days, then days++, then days to date
-    totaldays = d1.total_nod();
-    totaldays += 1;
+    d1.totaldays += num;
+    cout << d1.totaldays << endl;
     d1.day_to_date();
     return d1;
 }
 
-date date::operator ++(date& d1, int) //postfix
+int operator -(const date &d1, const date &d2)
+{
+    if((d1.totaldays - d2.totaldays) < 0) // means that difference is negative
+        cout << "error. the first date is behind the second date";
+
+    int result;
+    result = d1.totaldays - d2.totaldays;
+    return result;
+}
+
+date operator -(date &d1, int num)
+{
+    d1.totaldays -= num;
+    d1.day_to_date();
+    return d1;
+}
+
+date& operator ++(date& d1) // prefix
+{
+    // date to days, then days++, then days to date
+    d1.totaldays = d1.total_nod();
+    d1.totaldays += 1;
+    d1.day_to_date();
+    return d1;
+}
+
+date operator ++(date& d1, int) //postfix
 {
     date temp;
     temp = d1;
-    totaldays = d1.total_nod();
-    totaldays += 1;
+    d1.totaldays = d1.total_nod();
+    d1.totaldays += 1;
     d1.day_to_date();
     return temp;
 }

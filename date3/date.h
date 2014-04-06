@@ -8,13 +8,14 @@ class date
 {
 public:
     date();
+    date(int total_days);
     date(int new_day, int new_month, int new_year);
 
     //---friend functions---//
-    friend date operator +(const date& d1,const date& d2);
-    friend date operator +(const date& d1, int num);
-    friend date operator -(const date& d1, const date& d2);
-    friend date operator -(const date& d1, int num);
+//    friend date operator +(const date& d1,const date& d2); // cannot exist
+    friend date operator +(date& d1, int num);
+    friend int operator -(const date& d1, const date& d2);
+    friend date operator -(date& d1, int num);
     friend date& operator ++(date& d1); //prefix
     friend date operator ++(date&, int);// postfix
 
