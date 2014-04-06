@@ -24,6 +24,9 @@ int main()
     d2.day_to_date();
     cout << d2 << endl;
     cout << "leaps : " << d2.numofleaps() << endl;
+    cout << endl << endl;
+
+    cout << d2++<< endl;
     return 0;
 }
 

@@ -15,7 +15,8 @@ public:
     friend date operator +(const date& d1, int num);
     friend date operator -(const date& d1, const date& d2);
     friend date operator -(const date& d1, int num);
-    friend date& operator ++(date& d1);
+    friend date& operator ++(date& d1); //prefix
+    friend date operator ++(date&, int);// postfix
 
     //---date --> days functions---//
     // everything with ref to day 0

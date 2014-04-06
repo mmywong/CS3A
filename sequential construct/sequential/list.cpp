@@ -1,5 +1,5 @@
 #include "list.h"
-#include "Iterator.h"
+#include "iterator.h"
 #include <iostream>
 
 using namespace std;

@@ -33,7 +33,7 @@ date date::operator -(const date &d1, int num)
 
 }
 */
-date &date::operator ++(date &d1)
+date& date::operator ++(date& d1) // prefix
 {
     // date to days, then days++, then days to date
     totaldays = d1.total_nod();
