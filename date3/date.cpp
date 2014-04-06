@@ -42,6 +42,16 @@ date& date::operator ++(date& d1) // prefix
     return d1;
 }
 
+date date::operator ++(date& d1, int) //postfix
+{
+    date temp;
+    temp = d1;
+    totaldays = d1.total_nod();
+    totaldays += 1;
+    d1.day_to_date();
+    return temp;
+}
+
 //---  date --> days  ---//     (includes only first day, not the last day)
 int date::nod_years()
 {
