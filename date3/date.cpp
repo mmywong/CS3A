@@ -39,11 +39,8 @@ date operator +(date &d1, int num)
 
 int operator -(const date &d1, const date &d2)
 {
-    if((d1.totaldays - d2.totaldays) < 0) // means that difference is negative
-        cout << "error. the first date is behind the second date";
-
     int result;
-    result = d1.totaldays - d2.totaldays;
+    result = abs(d1.total_nod() - d2.total_nod());
     return result;
 }
 
@@ -74,14 +71,12 @@ date operator ++(date& d1, int) //postfix
 }
 
 //---  date --> days  ---//     (includes only first day, not the last day)
-int date::nod_years()
+int date::nod_years() const
 {
-    int leapyears;
-    leapyears = numofleaps();
-    return (365*(year-1) + leapyears);
+    return (365*(year-1) + numofleaps());
 }
 
-int date::nod_months()
+int date::nod_months() const
 {
     if(leapyear(year) == true)
         return monthA[month-1];
@@ -89,10 +84,9 @@ int date::nod_months()
         return monthA_leap[month-1];
 }
 
-int date::total_nod() // date --> days
+int date::total_nod() const // date --> days
 {
-    totaldays = (nod_years() + nod_months() + day); // total number of days INCLUDING today
-    return totaldays;
+    return (nod_years() + nod_months() + day); // total number of days INCLUDING today
 }
 
 //---  days --> date  ---// (includes first and last day)
@@ -128,7 +122,7 @@ void date::day_to_date()
 
 
 //--- leaps ---//
-bool date::leapyear(int year_num)
+bool date::leapyear(int year_num) const
 {
     if((year_num%400 == 0) || ((year_num%4 == 0)&&(year_num%100 != 0)))
         return true;
@@ -144,7 +138,7 @@ int date::countdaysinyear() //not really used
         return 365;
 }
 
-int date::numofleaps()
+int date::numofleaps() const
 {
     int counter=0;
     for(int i=1; i<year; i++)

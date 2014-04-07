@@ -1,6 +1,7 @@
 #ifndef DATE_H
 #define DATE_H
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -21,18 +22,18 @@ public:
 
     //---date --> days functions---//
     // everything with ref to day 0
-    int nod_years(); // number of days between years
-    int nod_months();
-    int total_nod();
+    int nod_years() const; // number of days between years
+    int nod_months() const;
+    int total_nod() const;
 
     //---days --> date functions---//
     void day_to_date();
 
 
     //---dealing with leap years---//
-    bool leapyear(int year_num);
+    bool leapyear(int year_num) const;
     int countdaysinyear(); // not really used
-    int numofleaps(); // with ref to day 0
+    int numofleaps() const; // with ref to day 0
 
     //---input and output---//
     friend istream& operator >>(istream& in, date& date1); // ok
