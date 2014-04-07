@@ -17,6 +17,7 @@ date::date(int new_day, int new_month, int new_year)
     day = new_day;
     month = new_month;
     year = new_year;
+    totaldays = total_nod();
 }
 
 //wrong function
@@ -32,7 +33,6 @@ date operator +(date &d1, int num)
 {
     d1.totaldays = d1.total_nod();
     d1.totaldays += num;
-    cout << d1.totaldays << endl;
     d1.day_to_date();
     return d1;
 }
@@ -46,6 +46,7 @@ int operator -(const date &d1, const date &d2)
 
 date operator -(date &d1, int num)
 {
+    d1.totaldays = d1.total_nod();
     d1.totaldays -= num;
     d1.day_to_date();
     return d1;
@@ -118,6 +119,7 @@ void date::day_to_date()
     }
 
     day = totaldays; //including first and last day
+    totaldays = total_nod();
 }
 
 
