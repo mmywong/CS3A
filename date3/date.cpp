@@ -30,6 +30,7 @@ date::date(int new_day, int new_month, int new_year)
 
 date operator +(date &d1, int num)
 {
+    d1.totaldays = d1.total_nod();
     d1.totaldays += num;
     cout << d1.totaldays << endl;
     d1.day_to_date();
