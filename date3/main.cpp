@@ -49,36 +49,63 @@ int main()
 
     return 0;
 }
-/*
+
 int BusinessDays(date fromDate, date toDate)
 {
     int counter;
     date defdate(1,1,1900);     //setting first day (1/1/1900) as monday
 
+    int from_nod = fromDate.total_nod();
+    int to_nod = toDate.total_nod();
+    while(from_nod != to_nod)
+    {
+        if(isBusday(fromDate) == true)
+            counter++;
+    fromDate++;
+    from_nod++;
+    }
 
     // first compare fromDate to first day (1/1/1900)
     // then compare toDate to first day to find out which day they are
     //with reference to monday, take difference and add those days
 
-    int totaldifference = (toDate - fromDate); //including weekends
-    if(totaldifference%7 <=5)
-        counter++;
-
-
+//    int totaldifference = (toDate - fromDate); //including weekends
+//    if(totaldifference%7 <=5)
 
     return counter;
 }
 
 int Weekends(date fromDate, date toDate)
 {
-    int totaldifference = (toDate - fromDate);
+    int counter;
+    date defdate(1,1,1900);     //setting first day (1/1/1900) as monday
+
+    int from_nod = fromDate.total_nod();
+    int to_nod = toDate.total_nod();
+    while(from_nod != to_nod)
+    {
+        if(isWeekend(fromDate) == true)
+            counter++;
+    fromDate++;
+    from_nod++;
+    }
+    return counter;
 }
 
 date inXbusinessdays(date fromDate, int num)
 {
-
+//    date defdate(1,1,1900);     //setting first day (1/1/1900) as monday
+    int from_nod = fromDate.total_nod();
+    while(num != 0)
+    {
+        if(isBusday(fromDate) == true) // if it's a business day
+            num--;
+        fromDate++;
+    }
+    return fromDate;
+//    (fromDate-defdate)%7;  // tells us which day it is
 }
-*/
+
 bool isBusday(date d)
 {
     if(((d.total_nod() % 7) < 5) && ((d.total_nod() % 7) >= 0))// weekday
