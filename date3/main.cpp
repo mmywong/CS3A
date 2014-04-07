@@ -3,6 +3,12 @@
 
 using namespace std;
 
+int BusinessDays(date fromDate, date toDate);
+int Weekends(date fromDate, date toDate);
+date inXbusinessdays(date fromDate, int num);
+bool isBusday(date d);
+bool isWeekend(date d);
+
 int main()
 {
     int numofdays;
@@ -27,29 +33,64 @@ int main()
     cout << "DEBUG: Total days d2 : " << d2.getTotaldays() << endl;
     cout << "d2 now : " << d2 << endl;
 
+    cout << "-------------------------------------" << endl << endl;
 
-//    cout << "This is the default: " << d1 << endl;
+    date d3(1,1,1900);
+    date d4(4,4,2014);
+    cout << "d3 : " << d3 << endl;
+    cout << "d4 : " << d4 << endl;
+    cout << "check to see if they are weekend : " << endl;
+    cout << "d3 weekend? : " << isWeekend(d3) << endl;
+    cout << "d4 weekend? : " << isWeekend(d4) << endl;
+    cout << "check to see if they are business day: " << endl;
+    cout << "d3 bus day? : " << isBusday(d3) << endl;
+    cout << "d4 bus day? : " << isBusday(d4) << endl;
 
-    /*
-    cout << "date --> days" << endl;
-    cin >> d1;
 
-    cout << endl;
-    cout << "leaps : " << d1.numofleaps() << endl;
-    cout << "days : " << d1.total_nod() << endl;
-    cout << endl << endl;
-
-    cout << "days --> date" << endl;
-    cin >> numofdays;
-    d2.setTotaldays(numofdays);
-    d2.day_to_date();
-    cout << d2 << endl;
-    cout << "leaps : " << d2.numofleaps() << endl;
-    cout << endl << endl;
-
-    cout << ++d2 << endl;
-    cout << ++d2 << endl;
-    */
     return 0;
 }
+/*
+int BusinessDays(date fromDate, date toDate)
+{
+    int counter;
+    date defdate(1,1,1900);     //setting first day (1/1/1900) as monday
 
+
+    // first compare fromDate to first day (1/1/1900)
+    // then compare toDate to first day to find out which day they are
+    //with reference to monday, take difference and add those days
+
+    int totaldifference = (toDate - fromDate); //including weekends
+    if(totaldifference%7 <=5)
+        counter++;
+
+
+
+    return counter;
+}
+
+int Weekends(date fromDate, date toDate)
+{
+    int totaldifference = (toDate - fromDate);
+}
+
+date inXbusinessdays(date fromDate, int num)
+{
+
+}
+*/
+bool isBusday(date d)
+{
+    if(((d.total_nod() % 7) < 5) && ((d.total_nod() % 7) >= 0))// weekday
+        return true;
+    else
+        return false;
+}
+
+bool isWeekend(date d)
+{
+    if(((d.total_nod() % 7) == 5) || ((d.total_nod() % 7) == 6)) // weekend
+        return true;
+    else
+        return false;
+}
