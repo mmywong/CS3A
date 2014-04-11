@@ -1,6 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-#include "Iterator.h"
+#include "iterator.h"
 
 class list
 {
@@ -31,14 +31,18 @@ public:
     int& operator []                (int index);
 
     //---sort---//
-    void InsertSorted               (int num);
-    void Sort                       ();
+//    void InsertSorted               (int num);
+//    void Sort                       ();
+
+    //---new lists---//
+    void Reverse                    ();
 
     //---markers---//
     Iterator Begin                  ();
     Iterator End                    ();
     Iterator Ithnode                (int i);
-
+    int IthElement                  (); // returns the item of IthNode
+//    Iterator Previous               ();
 
 private:
     //---node ---//

@@ -168,6 +168,22 @@ int &list::operator [](int index)
     */
 }
 
+void list::Reverse()
+{
+    node* first = head;
+    node* last = nEnd();
+    list newlist;
+
+    newlist.InsertHead(Delete(last));
+
+    while(first != NULL)
+    {
+        InsertAfter(newlist.head, Delete(last));
+        last = nEnd();
+    }
+    head = newlist.head;
+}
+
 
 //---sort---//
 void list::Sort() // calls insert sorted until everything is inserted
@@ -248,7 +264,7 @@ void list::InsertBefore(node *marker, int num)
 }
 
 /*
-node *list::WhereThisGoes(int i)
+Iterator list::WhereThisGoes(int i)
 {
     node* marker = head;
     while((marker != NULL) && (i < marker->item))

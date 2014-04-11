@@ -6,11 +6,13 @@ CONFIG -= qt
 SOURCES += main.cpp \
     list.cpp \
     iterator.cpp \
-    sortedlist.cpp
+    sortedlist.cpp \
+    cursoredlist.cpp
 
 HEADERS += \
     list.h \
     iterator.h \
     node.h \
-    sortedlist.h
+    sortedlist.h \
+    cursoredlist.h
 

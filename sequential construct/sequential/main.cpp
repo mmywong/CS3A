@@ -86,7 +86,7 @@ int main()
     L3.Append(1);
     L3.Print();
     cout << endl;
-    L3.Sort();
+//    L3.Sort();
     L3.Print();
     cout << endl << endl;
 
