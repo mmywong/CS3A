@@ -2,27 +2,28 @@
 #define LIST_H
 #include "iterator.h"
 
+template <class T>
 class list
 {
 public:
     list                            ();
 
     //---big three---//
-    list                            (list &copythis); // copy constructor
-    const list& operator =          (list& right); //assignment operator
+    list                            (list<T> &copythis); // copy constructor
+    const list& operator =          (list<T>& right); //assignment operator
     ~list                           ();  //destructor
 
     //---create---//
-    void InsertHead                 (int num);//must return a node*
-    void InsertAfter                (Iterator marker, int num); // makes a node to the right of marker's node
-    void InsertBefore               (Iterator marker, int num); // makes a node to the left of marker's node
-    void Append                     (int num); // makes a node at the very end of the list
+    void InsertHead                 (T num);//must return a node*
+    void InsertAfter                (Iterator<T> marker, T num); // makes a node to the right of marker's node
+    void InsertBefore               (Iterator<T> marker, T num); // makes a node to the left of marker's node
+    void Append                     (T num); // makes a node at the very end of the list
 
     //---delete---//``
-    int Delete                      (Iterator marker); // returns the item you deleted
+    T Delete                      (Iterator<T> marker); // returns the item you deleted
 
     //---search---//
-    int Search                      (int key);
+    int Search                      (T key);
 
     //---show---//
     void Print                      () const;
@@ -38,9 +39,9 @@ public:
     void Reverse                    ();
 
     //---markers---//
-    Iterator Begin                  ();
-    Iterator End                    ();
-    Iterator Ithnode                (int i);
+    Iterator<T> Begin                  ();
+    Iterator<T> End                    ();
+    Iterator<T> Ithnode                (int i);
     int IthElement                  (); // returns the item of IthNode
 //    Iterator Previous               ();
 
@@ -49,9 +50,9 @@ private:
     //public fx should not have node* everywhere
     //private fx can have node* because user has no access
     //use these node* in private to write public functions
-    void InsertAfter                (node* marker, int num); // makes a node to the right of marker's node
-    void InsertBefore               (node* marker, int num); // makes a node to the left of marker's node
-    int Delete                      (node* marker);
+    void InsertAfter                (node* marker, T num); // makes a node to the right of marker's node
+    void InsertBefore               (node* marker, T num); // makes a node to the left of marker's node
+    T Delete                      (node* marker);
     node* Remove                    (node* marker);
     node* nEnd                      ();
     //node* WhereThisGoes(int i);

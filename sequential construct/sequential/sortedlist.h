@@ -10,7 +10,7 @@ public:
     void Sort                       ();
 
     //CHECK THIS :
-    list operator +=(int i); // inserts i in a sorted list
+    list operator +=                (int i); // inserts i in a sorted list
     list Merge                      (list a, list b); // merges two sorted lists
 private:
     Iterator head;

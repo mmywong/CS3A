@@ -1,5 +1,5 @@
 #include "list.h"
-#include "iterator.h"
+#include "Iterator.h"
 #include <iostream>
 
 using namespace std;
@@ -61,7 +61,8 @@ list::~list()
 }
 
 //---create---//
-void list::InsertHead(int num)
+template <class T>
+void list::InsertHead(T num)
 {
     node* temp = new node;
 
@@ -70,7 +71,8 @@ void list::InsertHead(int num)
     head = temp;
 }
 
-void list::InsertAfter(Iterator marker, int num)
+template <class T>
+void list::InsertAfter(Iterator marker, T num)
 {
     node* temp = new node;
     temp->item = num;
@@ -78,7 +80,8 @@ void list::InsertAfter(Iterator marker, int num)
     marker.nodeptr->next = temp;
 }
 
-void list::InsertBefore(Iterator marker, int num)
+template <class T>
+void list::InsertBefore(Iterator marker, T num)
 {
 //    if(marker = head)
 //        return NULL;
@@ -92,7 +95,8 @@ void list::InsertBefore(Iterator marker, int num)
     walker->next = temp;
 }
 
-void list::Append(int num)
+template <class T>
+void list::Append(T num)
 {
     Iterator marker = End();
     InsertAfter(marker, num);
@@ -124,7 +128,8 @@ int list::Delete(Iterator marker)
     return temp;
 }
 
-int list::Delete(node *marker)
+template <class T>
+T list::Delete(node *marker)
 {
     int temp; // value that's in marker
     temp = marker->item;
@@ -133,7 +138,8 @@ int list::Delete(node *marker)
     return temp;
 }
 
-int list::Search(int key)
+template <class T>
+int list::Search(T key)
 {
     int pos = 0;
     node* marker = head;
@@ -144,7 +150,7 @@ int list::Search(int key)
     }
     if(marker == NULL)
         return -1; // not found
-    return pos; // if item is not found
+    return pos; // if item is found
 }
 
 //---show---//
@@ -185,39 +191,10 @@ void list::Reverse()
 }
 
 
-//---sort---//
-void list::Sort() // calls insert sorted until everything is inserted
-{
-    list newlist;
-    node* marker = head;
-    newlist.InsertHead(head->item);
-    marker = marker->next; // check this later
-    while(marker != NULL) { //marker is to iterate current class's nodes
-//        newlist.InsertSorted(marker->item);
-        newlist.InsertSorted(head->item); // potential bug: repeats first node twice because w1 hasn't moved
-        Delete(head); // here, before delete, "head should be set to the next node"
-        marker = marker->next;
-    }
-    head = newlist.head;
-    newlist.head = NULL;
-    cout << "reach" << endl;
-}
 
-void list::InsertSorted(int num) // inserts one node
-{
-    node* newmarker = head;
-    while((newmarker != NULL) && (num < newmarker->item))
-        newmarker = newmarker->next;
-
-    if(num < newmarker->item)
-        InsertBefore(newmarker, num);
-    else // value is greater than
-        InsertAfter(newmarker, num);
-    newmarker = head;
-}
 
 //---markers---//
-Iterator list::Begin()
+Iterator<T> list::Begin()
 {
     return Iterator(head);
 }
@@ -230,12 +207,12 @@ node* list::nEnd()
     return walker;
 }
 
-Iterator list::End()
+Iterator<T> list::End()
 {
     return Iterator(nEnd());
 }
 
-Iterator list::Ithnode(int i)
+Iterator<T> list::Ithnode(int i)
 {
     node* walker = head;
     for(int j=0; j<i; j++)
@@ -243,7 +220,8 @@ Iterator list::Ithnode(int i)
     return Iterator(walker); // returns the address of the Ith node
 }
 
-void list::InsertAfter(node *marker, int num)
+template <class T>
+void list::InsertAfter(node *marker, T num)
 {
     node* temp = new node;
     temp->item = num;
@@ -251,7 +229,8 @@ void list::InsertAfter(node *marker, int num)
     marker->next = temp;
 }
 
-void list::InsertBefore(node *marker, int num)
+template <class T>
+void list::InsertBefore(node *marker, T num)
 {
     node* temp = new node;
     node* walker = head;

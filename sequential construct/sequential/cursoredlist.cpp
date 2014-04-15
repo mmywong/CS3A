@@ -1,5 +1,17 @@
 #include "cursoredlist.h"
 
-CursoredList::CursoredList()
+CursoredList::CursoredList():
+    list()
 {
+    cursor = NULL;
+}
+
+CursoredList CursoredList::GoNext()
+{
+
+}
+
+CursoredList CursoredList::GoPrev()
+{
+
 }

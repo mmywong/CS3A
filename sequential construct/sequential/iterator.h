@@ -13,7 +13,6 @@ public:
     Iterator Next               () const;
 
     //---operators---//
-
     bool operator ==            (const Iterator& itr); // checks if they are the same
     int& operator *             (); // dereference
 
