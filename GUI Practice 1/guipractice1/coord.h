@@ -2,7 +2,6 @@
 #define COORD_H
 #include <iostream>
 
-
 using namespace std;
 
 class coord
@@ -11,7 +10,7 @@ public:
     coord();
     coord(float newX, float newY);
 
-    friend ostream& operator <<(ostream& out, const& polygon);
+    friend ostream& operator <<(ostream& out, const& coord);
 private:
     float x;
     float y;
