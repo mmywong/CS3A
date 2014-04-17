@@ -1,15 +1,18 @@
 #include <iostream>
+#include "cursoredlist.h"
 #include "list.h"
 #include "iterator.h"
+#include "sortedlist.h"
 
 using namespace std;
 
 int main()
 {
     cout << "making a new list : " << endl;
-    list L;
+
+    list<int> L;
     L.InsertHead(1);
-    Iterator walker(L.Begin()); // make iterator point at head
+    Iterator<int> walker(L.Begin()); // make iterator point at head
     L.Append(2);
     L.Append(3);
     L.Append(4);
@@ -17,7 +20,7 @@ int main()
     cout << endl << endl;
 
     cout << "testing copy constructor : " << endl;
-    list L2(L);
+    list<int> L2(L);
     L2.Print();
     cout << endl << endl;
 
@@ -84,9 +87,11 @@ int main()
     L3.Append(3);
     L3.Append(4);
     L3.Append(1);
+
+    SortedList L4;
     L3.Print();
     cout << endl;
-//    L3.Sort();
+    L3.Sort();
     L3.Print();
     cout << endl << endl;
 

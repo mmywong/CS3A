@@ -14,4 +14,22 @@ private:
     Iterator cursor; // because we don't want user to delete our cursor
 };
 
+//================functions===============//
+CursoredList::CursoredList():
+    list()
+{
+    cursor = NULL;
+}
+
+CursoredList CursoredList::GoNext()
+{
+
+}
+
+CursoredList CursoredList::GoPrev()
+{
+
+}
+
+
 #endif // CURSOREDLIST_H

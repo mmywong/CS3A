@@ -1,27 +1,104 @@
 #ifndef Iterator_H
 #define Iterator_H
 #include "node.h"
+#include <iostream>
 
+template<class T> //dummy variable
+class list;
+
+template <class T>
 class Iterator
 {
 public:
-    friend class list;
-    Iterator                    ();
-    Iterator                    (node* p);
-    Iterator                    (const Iterator &p);
+    friend class list<T>;
+
+    Iterator<T>                    ()    {    nodeptr = NULL;}
+    Iterator<T>                    (node<T>* p);
+    Iterator<T>                    (const Iterator<T> &p);
     bool IsNull                 () const;
-    Iterator Next               () const;
+    Iterator<T> Next            () const;
 
     //---operators---//
-    bool operator ==            (const Iterator& itr); // checks if they are the same
-    int& operator *             (); // dereference
+    bool operator ==            (const Iterator<T>& itr); // checks if they are the same
+    T& operator *               (); // dereference
 
-    Iterator operator ++        (int); //postfix (always has dummy variable)
-    Iterator& operator ++       (); // prefix (note the &)
+    Iterator<T> operator ++        (int); //postfix (always has dummy variable)
+    Iterator<T>& operator ++       (); // prefix (note the &)
+    void Delete			();
 
  private:
-    node* nodeptr;
+    node<T>* nodeptr;
 
 };
+
+//=============functions=============//
+
+template <class T>
+Iterator<T>::Iterator(node<T> *p)
+{
+    nodeptr = p;
+}
+
+template <class T>
+Iterator<T>::Iterator(const Iterator<T> &p)
+{
+    nodeptr = p.nodeptr;
+}
+
+template <class T>
+bool Iterator<T>::IsNull() const
+{
+    if(nodeptr == NULL)
+        return true;
+    else
+        return false;
+}
+
+template <class T>
+bool Iterator<T>::operator ==(const Iterator<T>& itr)
+{
+    if(nodeptr == itr.nodeptr)
+        return true;
+    else
+        return false;
+}
+
+template <class T>
+T& Iterator<T>::operator *() //pass by reference so that the value is changed (note case : *Iterator = 100)
+{
+    return nodeptr->item;
+}
+
+template <class T>
+Iterator<T> Iterator<T>::operator ++(int) // postfix
+{
+    Iterator<T> tempitr;
+    tempitr.nodeptr = nodeptr;
+    nodeptr = nodeptr->next;
+    return tempitr;
+}
+
+template <class T>
+Iterator<T> &Iterator<T>::operator ++() // prefix
+{
+    nodeptr = nodeptr->next;
+    return *this;
+}
+
+template <class T>
+void Iterator<T>::Delete()
+{
+    delete nodeptr;
+}
+
+template <class T>
+Iterator<T> Iterator<T>::Next() const
+{
+    Iterator<T> itr; //here iterator points to Some dark entity(RANDOM)
+    //itr points to nothing
+    itr.nodeptr = itr.nodeptr->next; // here, program will crash, no warning given
+    return itr;
+}
+
 
 #endif // Iterator_H

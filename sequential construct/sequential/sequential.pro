@@ -3,11 +3,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
-    list.cpp \
-    iterator.cpp \
-    sortedlist.cpp \
-    cursoredlist.cpp
+SOURCES += main.cpp
 
 HEADERS += \
     list.h \
