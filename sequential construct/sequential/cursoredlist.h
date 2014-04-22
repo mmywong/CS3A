@@ -2,31 +2,35 @@
 #define CURSOREDLIST_H
 #include "iterator.h"
 
-class CursoredList : public list
+template <class T>
+class CursoredList : protected list<T>
 {
 public:
     CursoredList                    ();
 
     //Q : returns Iterator/Cursored list with Iterator cursor as private member?
-    CursoredList GoNext             ();
-    CursoredList GoPrev             ();
+    void GoNext             ();
+    void GoPrev             ();
 private:
-    Iterator cursor; // because we don't want user to delete our cursor
+    Iterator<T> cursor; // because we don't want user to delete our cursor
 };
 
 //================functions===============//
-CursoredList::CursoredList():
-    list()
+template <class T>
+CursoredList<T>::CursoredList():
+    list<T>::list()
 {
     cursor = NULL;
 }
 
-CursoredList CursoredList::GoNext()
+template <class T>
+void CursoredList<T>::GoNext()
 {
 
 }
 
-CursoredList CursoredList::GoPrev()
+template <class T>
+void CursoredList<T>::GoPrev()
 {
 
 }

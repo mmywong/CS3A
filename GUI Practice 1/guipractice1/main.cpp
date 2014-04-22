@@ -7,11 +7,11 @@
 #include "mygui.h"
 #include "glwidget.h"
 
-#include <QUrl>
-#include <phonon/audiooutput.h>
-#include <phonon/mediaobject.h>
-#include <phonon/mediasource.h>
-#include <phonon/videowidget.h>
+//#include <QUrl>
+//#include <phonon/audiooutput.h>
+//#include <phonon/mediaobject.h>
+//#include <phonon/mediasource.h>
+//#include <phonon/videowidget.h>
 
 using namespace Phonon;
 

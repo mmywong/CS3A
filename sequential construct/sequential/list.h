@@ -47,6 +47,7 @@ public:
     Iterator<T> Ithnode                (int i);
     int IthElement                     (); // returns the item of IthNode
 //    Iterator Previous               ();
+    bool isEmpty                        ();
 
 private:
     //---node ---//
@@ -287,6 +288,15 @@ Iterator<T> list<T>::Ithnode(int i)
     for(int j=0; j<i; j++)
        walker = walker->next; // makes walker point at the node we want
     return Iterator<T>(walker); // returns the address of the Ith node
+}
+
+template <class T>
+bool list<T>::isEmpty()
+{
+    if(head == NULL)
+        return true;
+    else
+        return false;
 }
 
 template <class T>

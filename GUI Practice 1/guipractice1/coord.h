@@ -10,7 +10,7 @@ public:
     coord();
     coord(float newX, float newY);
 
-    friend ostream& operator <<(ostream& out, const& coord);
+    friend ostream& operator <<(ostream& out, const& coord c);
 private:
     float x;
     float y;

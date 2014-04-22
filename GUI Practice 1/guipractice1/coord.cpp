@@ -10,7 +10,7 @@ coord::coord(float newX, float newY)
     y = newY;
 }
 
-ostream &coord::operator <<(ostream &out, const&polygon)
+ostream &coord::operator <<(ostream &out, const& coord)
 {
-
+ out<<"("<<x<<","<<y<<")";
 }

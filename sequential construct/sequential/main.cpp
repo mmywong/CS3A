@@ -81,18 +81,18 @@ int main()
     cout << *(L.Ithnode(4)) << endl << endl;
 
     cout << "testing Sort : " << endl;
-    list L3;
+    list<int> L3;
     L3.InsertHead(6);
     L3.Append(5);
     L3.Append(3);
     L3.Append(4);
     L3.Append(1);
 
-    SortedList L4;
+    SortedList<int> L4;
     L3.Print();
     cout << endl;
-    L3.Sort();
-    L3.Print();
+    L4.Sort(L3);
+
     cout << endl << endl;
 
     return 0;
