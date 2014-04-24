@@ -26,13 +26,16 @@ CursoredList<T>::CursoredList():
 template <class T>
 void CursoredList<T>::GoNext()
 {
-
+    cursor = cursor.Next();
 }
 
 template <class T>
-void CursoredList<T>::GoPrev()
+void CursoredList<T>::GoPrev() // ** check this!!
 {
-
+    CursoredList temp; // contains a new iterator
+    while(temp.cursor.Next() != cursor)
+        temp.cursor = temp.cursor.Next();
+    *this = temp;
 }
 
 

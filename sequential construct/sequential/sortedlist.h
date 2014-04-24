@@ -88,8 +88,8 @@ void SortedList<T>::Sort(list<T> sortthis) // calls insert sorted until everythi
 template <class T>
 void SortedList<T>::Insert(T num) // inserts one node
 {
-    Iterator<T> sortwalker(list<T>::Begin());
-
+    Iterator<T> sortwalker = list<T>::Begin();
+    cout << "this is where sortwalker is pointing to : " << *sortwalker << endl << endl;
     if(sortwalker.IsNull())
     {
             cout << "insert head" << endl;
@@ -123,18 +123,19 @@ void SortedList<T>::Insert(T num) // inserts one node
             cout<<"appending" << endl;
             list<T>::Append(num);
         }
-        else if (num < *sortwalker)
+        else /*if (num < *sortwalker)*/
         {
             cout << "insert before" <<endl;
             list<T>::InsertBefore(sortwalker, num);
         }
-        else
-        {
-            cout << "insert after" << endl;
-            list<T>::InsertAfter(sortwalker,num);
-        }
+//        else
+//        {
+//            cout << "insert after" << endl;
+//            list<T>::InsertBefore(sortwalker,num);
+//        }
     }
     list<T>::Print();
+    cout << endl;
 
 
 

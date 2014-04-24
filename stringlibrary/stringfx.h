@@ -8,7 +8,8 @@ int StrCmp(char *Ptr1, char *Ptr2);
 void SubStr(char *&main, char *sub, int start, int length);
 int Find(char a, char *iPtr, int startPos);
 int FindStr(char str[], char *iPtr, int startPos); // iPtr is the main array, str[] is the array we want to find
-
+void toUpper(char *s); // note: old function from CS2. change to pointer later to keep consistency
+void toLower(char s[]);
 
 void SubStr(char *&main, char *sub, int start, int length) //creates a substring which takes a block of main and puts it into sub, starting from position "start" for a given length
 {
@@ -125,6 +126,152 @@ int StrLen(char *iPtr)
          index++;
     return index;
 }
+
+void toUpper(char* s)
+{
+    int i=0;
+
+    while(*(s+i) != '\0')
+    {
+        switch(*(s+i))
+        {
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e':
+            case 'f':
+            case 'g':
+            case 'h':
+            case 'i':
+            case 'j':
+            case 'k':
+            case 'l':
+            case 'm':
+            case 'n':
+            case 'o':
+            case 'p':
+            case 'q':
+            case 'r':
+            case 's':
+            case 't':
+            case 'u':
+            case 'v':
+            case 'w':
+            case 'x':
+            case 'y':
+            case 'z':
+
+                *(s+i)-=32;
+                i++;
+                break;
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'G':
+            case 'H':
+            case 'I':
+            case 'J':
+            case 'K':
+            case 'L':
+            case 'M':
+            case 'N':
+            case 'O':
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U':
+            case 'V':
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
+            case ' ':
+                i++;
+                break;
+            }
+        }
+}
+
+//10: To Lower
+void toLower(char s[])
+{
+    int i=0;
+
+    while(s[i] != '\0')
+    {
+        switch(s[i])
+        {
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e':
+            case 'f':
+            case 'g':
+            case 'h':
+            case 'i':
+            case 'j':
+            case 'k':
+            case 'l':
+            case 'm':
+            case 'n':
+            case 'o':
+            case 'p':
+            case 'q':
+            case 'r':
+            case 's':
+            case 't':
+            case 'u':
+            case 'v':
+            case 'w':
+            case 'x':
+            case 'y':
+            case 'z':
+            case ' ':
+                s[i]=s[i];
+                i++;
+                break;
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'G':
+            case 'H':
+            case 'I':
+            case 'J':
+            case 'K':
+            case 'L':
+            case 'M':
+            case 'N':
+            case 'O':
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U':
+            case 'V':
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
+                s[i]=s[i]+32;
+                i++;
+                break;
+            }
+
+    }
+}
+
+
 
 
 #endif // STRINGFX_H

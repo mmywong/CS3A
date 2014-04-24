@@ -3,6 +3,8 @@
 #include "node.h"
 #include <iostream>
 
+using namespace std;
+
 template<class T> //dummy variable
 class list;
 
@@ -66,7 +68,10 @@ bool Iterator<T>::operator ==(const Iterator<T>& itr)
 template <class T>
 T& Iterator<T>::operator *() //pass by reference so that the value is changed (note case : *Iterator = 100)
 {
-    return nodeptr->item;
+    if(nodeptr == NULL)
+        cout << "NULL in dereference iterator"<< endl;
+    else
+        return nodeptr->item;
 }
 
 template <class T>

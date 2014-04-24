@@ -80,6 +80,16 @@ int main()
     cout << "testing Ithnode(4) : " << endl;
     cout << *(L.Ithnode(4)) << endl << endl;
 
+    cout << "testing InsertBefore(Ithnode(4), 2)" << endl;
+    L.InsertBefore(L.Ithnode(4), 2);
+    L.Print();
+    cout << endl << endl;
+
+    cout << "testing InsertAfter(Ithnode(4), 1)" << endl;
+    L.InsertAfter(L.Ithnode(4), 1);
+    L.Print();
+    cout << endl << endl;
+
     cout << "testing Sort : " << endl;
     list<int> L3;
     L3.InsertHead(6);
