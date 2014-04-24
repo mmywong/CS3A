@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    stack A;
+    stack<int> A;
         A.Push(2);
         A.Push(3);
         A.Push(65);

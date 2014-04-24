@@ -2,10 +2,11 @@
 #define STACK_H
 #include "../../../CS3A/sequential construct/sequential/list.h"
 
-template<class T>
-class list;
+//template<class T>
+//class list;
 
-class stack : public list
+template <class T>
+class stack : public list<T>
 {
 public:
     stack();

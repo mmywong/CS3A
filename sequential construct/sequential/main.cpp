@@ -86,12 +86,16 @@ int main()
     L3.Append(5);
     L3.Append(3);
     L3.Append(4);
-    L3.Append(1);
+    L3.Append(8);
+
 
     SortedList<int> L4;
+    cout << "original list" << endl;
     L3.Print();
-    cout << endl;
+    cout << endl << endl;
     L4.Sort(L3);
+    cout << "sorted list " << endl;
+    L4.Print();
 
     cout << endl << endl;
 

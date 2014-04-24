@@ -11,15 +11,14 @@ public:
     void Sort                       (list<T> sortthis);
     void Insert                     (T num);
 
-
-    void InsertAfter                (Iterator<T> marker, T num); // makes a node to the right of marker's node
-    void InsertBefore               (Iterator<T> marker, T num); // makes a node to the left of marker's node
+//    void InsertAfter                (Iterator<T> marker, T num); // makes a node to the right of marker's node
+//    void InsertBefore               (Iterator<T> marker, T num); // makes a node to the left of marker's node
 
     //CHECK THIS :
     list<T> operator +=                (int i); // inserts i in a sorted list
     list<T> Merge                      (list<T> a, list<T> b); // merges two sorted lists
 private:
-    Iterator<T> head;
+//    Iterator<T> head;
 //    void InsertHead                 (T num);//must return a node*
 //    void Append                     (T num); // makes a node at the very end of the list
 
@@ -30,7 +29,6 @@ template <class T>
 SortedList<T>::SortedList():
     list<T>::list()
 {
-    head = NULL;
 }
 
 /*
@@ -48,13 +46,27 @@ template <class T>
 void SortedList<T>::Sort(list<T> sortthis) // calls insert sorted until everything is inserted
 {
     Iterator<T> listwalker = sortthis.Begin();
+    SortedList temp;
+
+//    temp.list<T>::InsertHead(*listwalker);
+//    listwalker = listwalker.Next();
+
+//    if(listwalker.IsNull())
+//        cout << "listwalker null";
+//    else
+//        cout << "value : " << *listwalker << endl;
+    //DEBUG//
+    cout << "this is temp.print();" << endl << endl;
+    temp.Print();
+
+
     while(listwalker.IsNull() == false)
     {
-        Insert(*listwalker);
+        temp.Insert(*listwalker);
         listwalker = listwalker.Next();
     }
-
-
+    *this = temp;
+    temp.Print();
 
 //    list newlist;
 //    Iterator marker = head;
@@ -76,14 +88,54 @@ void SortedList<T>::Sort(list<T> sortthis) // calls insert sorted until everythi
 template <class T>
 void SortedList<T>::Insert(T num) // inserts one node
 {
-    Iterator<T> sortwalker = head;
-    while((sortwalker.IsNull()==false) && (num < *sortwalker))
-        sortwalker = sortwalker.Next();
+    Iterator<T> sortwalker(list<T>::Begin());
 
-    if(num < *sortwalker)
-        InsertBefore(sortwalker, num);
+    if(sortwalker.IsNull())
+    {
+            cout << "insert head" << endl;
+            list<T>::InsertHead(num);
+    }
     else
-        InsertAfter(sortwalker, num);
+    {
+//    if(sortwalker == NULL)
+//        cout << "null" << endl;
+//    else
+//        cout << "*sortwalker" << *sortwalker << endl << endl;
+        cout << endl << "1 : null, 0: not null" << endl;
+        cout << "sortwalker.isnull(): " << sortwalker.IsNull() << endl <<endl;
+
+        while((sortwalker.IsNull()==false) && (num > *sortwalker))
+            sortwalker = sortwalker.Next();
+
+//    if(num < *sortwalker)
+//    {
+//            cout << "ins bef" << endl;
+//            list<T>::InsertBefore(sortwalker, num);
+//    }
+//    else // value is greater than
+//    {
+//            cout << "ins after" << endl;
+//            list<T>::InsertAfter(sortwalker, num);
+//    }
+
+        if(sortwalker.IsNull())
+        {
+            cout<<"appending" << endl;
+            list<T>::Append(num);
+        }
+        else if (num < *sortwalker)
+        {
+            cout << "insert before" <<endl;
+            list<T>::InsertBefore(sortwalker, num);
+        }
+        else
+        {
+            cout << "insert after" << endl;
+            list<T>::InsertAfter(sortwalker,num);
+        }
+    }
+    list<T>::Print();
+
 
 
 //    Iterator newmarker = head;

@@ -311,14 +311,19 @@ void list<T>::InsertAfter(node<T> *marker, T num)
 template <class T>
 void list<T>::InsertBefore(node<T> *marker, T num)
 {
-    node<T>* temp = new node<T>;
-    node<T>* walker = head;
-    temp->item = num;
+    if(marker==head)
+        InsertHead(num);
+    else
+    {
+        node<T>* temp = new node<T>;
+        node<T>* walker = head;
+        temp->item = num;
 
-    while((walker->next != marker) && (walker->next != NULL))
-        walker = walker->next;
-    temp->next = walker->next;
-    walker->next = temp;
+        while((walker->next != marker) && (walker->next != NULL))
+            walker = walker->next;
+        temp->next = walker->next;
+        walker->next = temp;
+    }
 }
 
 /*

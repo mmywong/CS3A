@@ -15,8 +15,8 @@ public:
     Iterator<T>                    ()    {    nodeptr = NULL;}
     Iterator<T>                    (node<T>* p);
     Iterator<T>                    (const Iterator<T> &p);
-    bool IsNull                 () const;
-    Iterator<T> Next            () const;
+    bool IsNull                    () const;
+    Iterator<T> Next               ();
 
     //---operators---//
     bool operator ==            (const Iterator<T>& itr); // checks if they are the same
@@ -92,12 +92,12 @@ void Iterator<T>::Delete()
 }
 
 template <class T>
-Iterator<T> Iterator<T>::Next() const
+Iterator<T> Iterator<T>::Next()
 {
-    Iterator<T> itr; //here iterator points to Some dark entity(RANDOM)
+    //Iterator<T> itr; //here iterator points to Some dark entity(RANDOM)
     //itr points to nothing
-    itr.nodeptr = itr.nodeptr->next; // here, program will crash, no warning given
-    return itr;
+    nodeptr = nodeptr->next; // here, program will crash, no warning given
+    return *this;
 }
 
 
