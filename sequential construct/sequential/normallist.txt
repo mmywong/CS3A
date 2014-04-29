@@ -1,0 +1,89 @@
+making a new list :
+[1]-->[2]-->[3]-->[4]-->||||
+
+testing copy constructor :
+[1]-->[2]-->[3]-->[4]-->||||
+
+testing assignment operator :
+[1]-->[2]-->[3]-->[4]-->[5]-->||||
+
+testing InsertHead :
+[0]-->[1]-->[2]-->[3]-->[4]-->[5]-->||||
+
+testing InsertAfter and walker operator:
+[1]-->[9]-->[2]-->[8]-->[3]-->[4]-->[5]-->||||
+
+testing Delete :
+iterator's value : 2
+list : [1]-->[9]-->[8]-->[3]-->[4]-->[5]-->||||
+
+testing Search : 8
+search is found at position : 2
+testing Search : 7
+search is found at position : -1
+
+testing [] operator :
+L[2] : 8
+putting L[2] = 10 :
+L[2] : 10
+[1]-->[9]-->[10]-->[3]-->[4]-->[5]-->||||
+
+testing Begin :
+1
+
+testing End :
+5
+
+testing Ithnode(4) :
+4
+
+testing InsertBefore(Ithnode(4), 2)
+[1]-->[9]-->[10]-->[3]-->[2]-->[4]-->[5]-->||||
+
+testing InsertAfter(Ithnode(4), 1)
+[1]-->[9]-->[10]-->[3]-->[2]-->[1]-->[4]-->[5]-->||||
+
+testing Sort :
+original list
+[9]-->[5]-->[3]-->[4]-->[8]-->[1]-->[10]-->||||
+
+sorted list
+[1]-->[3]-->[4]-->[5]-->[8]-->[9]-->[10]-->||||
+
+Press <RETURN> to close this window...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

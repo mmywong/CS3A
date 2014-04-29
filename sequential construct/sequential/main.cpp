@@ -8,6 +8,8 @@ using namespace std;
 
 int main()
 {
+    cout << "==========================Normal List===============================" << endl << endl;
+
     cout << "making a new list : " << endl;
 
     list<int> L;
@@ -90,13 +92,49 @@ int main()
     L.Print();
     cout << endl << endl;
 
+
+
+    cout << "============================Templated List=============================" << endl << endl;
+
+    cout << "#==char list==#" << endl;
+    list<char> L5;
+    L5.InsertHead('a');
+    L5.Append('c');
+    L5.Append('d');
+    L5.Append('t');
+    L5.Append('w');
+    L5.Append('x');
+    L5.Append('b');
+    L5.Print();
+
+    cout << endl << endl;
+
+    cout << "#==string list==#" << endl;
+    list<string> L6;
+    L6.InsertHead("test 1");
+    L6.Append("devina");
+    L6.Append("devina2");
+    L6.Append("devina3");
+    L6.Append("devina4");
+    L6.Append("devina5");
+    L6.Print();
+    cout << endl << endl;
+
+    cout << "#==int list==#" << endl;
+    L.Print();
+    cout << endl << endl;
+
+    cout << "=============================Sorted List============================" << endl << endl;
+
     cout << "testing Sort : " << endl;
     list<int> L3;
-    L3.InsertHead(6);
+    L3.InsertHead(9);
     L3.Append(5);
     L3.Append(3);
     L3.Append(4);
     L3.Append(8);
+    L3.Append(1);
+    L3.Append(10);
 
 
     SortedList<int> L4;

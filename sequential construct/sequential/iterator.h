@@ -68,9 +68,9 @@ bool Iterator<T>::operator ==(const Iterator<T>& itr)
 template <class T>
 T& Iterator<T>::operator *() //pass by reference so that the value is changed (note case : *Iterator = 100)
 {
-    if(nodeptr == NULL)
-        cout << "NULL in dereference iterator"<< endl;
-    else
+//    if(nodeptr == NULL) //REPLACE WITH TRY STATEMENT to account for null!!
+//        cout << "NULL in dereference iterator"<< endl;
+//    else
         return nodeptr->item;
 }
 

@@ -153,16 +153,18 @@ void list<T>::InsertAfter(Iterator<T> marker, T num)
 template <class T>
 void list<T>::InsertBefore(Iterator<T> marker, T num)
 {
-//    if(marker = head)
-//        return NULL;
-    node<T>* temp = new node<T>;
-    node<T>* walker = head;
-    temp->item = num;
+    if(marker == head)
+        InsertHead(num);
+    else{
+        node<T>* temp = new node<T>;
+        node<T>* walker = head;
+        temp->item = num;
 
-    while((walker->next != marker.nodeptr) && (walker->next != NULL))
-        walker = walker->next;
-    temp->next = walker->next;
-    walker->next = temp;
+        while((walker->next != marker.nodeptr) && (walker->next != NULL))
+            walker = walker->next;
+        temp->next = walker->next;
+        walker->next = temp;
+    }
 }
 
 template <class T>
@@ -199,7 +201,7 @@ T list<T>::Delete(Iterator<T> marker)
 template <class T>
 T list<T>::Delete(node<T> *marker)
 {
-    int temp = marker->item;
+    T temp = marker->item;
     delete Remove(marker);
     return temp;
 }

@@ -56,8 +56,7 @@ void SortedList<T>::Sort(list<T> sortthis) // calls insert sorted until everythi
 //    else
 //        cout << "value : " << *listwalker << endl;
     //DEBUG//
-    cout << "this is temp.print();" << endl << endl;
-    temp.Print();
+
 
 
     while(listwalker.IsNull() == false)
@@ -66,8 +65,6 @@ void SortedList<T>::Sort(list<T> sortthis) // calls insert sorted until everythi
         listwalker = listwalker.Next();
     }
     *this = temp;
-    temp.Print();
-
 //    list newlist;
 //    Iterator marker = head;
 //    newlist.InsertHead(head->item);
@@ -89,65 +86,17 @@ template <class T>
 void SortedList<T>::Insert(T num) // inserts one node
 {
     Iterator<T> sortwalker = list<T>::Begin();
-    cout << "this is where sortwalker is pointing to : " << *sortwalker << endl << endl;
     if(sortwalker.IsNull())
-    {
-            cout << "insert head" << endl;
             list<T>::InsertHead(num);
-    }
     else
     {
-//    if(sortwalker == NULL)
-//        cout << "null" << endl;
-//    else
-//        cout << "*sortwalker" << *sortwalker << endl << endl;
-        cout << endl << "1 : null, 0: not null" << endl;
-        cout << "sortwalker.isnull(): " << sortwalker.IsNull() << endl <<endl;
-
         while((sortwalker.IsNull()==false) && (num > *sortwalker))
             sortwalker = sortwalker.Next();
-
-//    if(num < *sortwalker)
-//    {
-//            cout << "ins bef" << endl;
-//            list<T>::InsertBefore(sortwalker, num);
-//    }
-//    else // value is greater than
-//    {
-//            cout << "ins after" << endl;
-//            list<T>::InsertAfter(sortwalker, num);
-//    }
-
         if(sortwalker.IsNull())
-        {
-            cout<<"appending" << endl;
             list<T>::Append(num);
-        }
         else /*if (num < *sortwalker)*/
-        {
-            cout << "insert before" <<endl;
             list<T>::InsertBefore(sortwalker, num);
-        }
-//        else
-//        {
-//            cout << "insert after" << endl;
-//            list<T>::InsertBefore(sortwalker,num);
-//        }
     }
-    list<T>::Print();
-    cout << endl;
-
-
-
-//    Iterator newmarker = head;
-//    while((newmarker != NULL) && (num < newmarker->item))
-//        newmarker = newmarker->next;
-
-//    if(num < newmarker->item)
-//        InsertBefore(newmarker, num);
-//    else // value is greater than
-//        InsertAfter(newmarker, num);
-//    newmarker = head;
 }
 
 
