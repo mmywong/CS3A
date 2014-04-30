@@ -38,7 +38,7 @@ public:
     void Reverse                    ();
 
     //---markers---//
-    Iterator<T> Previous               (Iterator<T> cursor);
+    Iterator<T> Previous               (Iterator<T> marker);
     Iterator<T> Begin                  ();
     Iterator<T> End                    ();
     Iterator<T> Ithnode                (int i);
@@ -259,16 +259,16 @@ void list<T>::Reverse()
 }
 
 template <class T>
-Iterator<T> list<T>::Previous(Iterator<T> cursor)
+Iterator<T> list<T>::Previous(Iterator<T> marker)
 {
-    if(cursor == NULL)
+    if(marker == NULL)
         return NULL;
-    else if(cursor == Begin())
+    else if(marker == Begin())
         return End();
     else
     {
         Iterator<T> walker = Begin();
-        while(!(walker.Next() == cursor))
+        while(!(walker.Next() == marker))
             walker = walker.Next();
         return walker;
     }

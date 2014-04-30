@@ -188,6 +188,7 @@ int main()
             default:
                 break;
         }
+
         cin >> command;
     }
 
