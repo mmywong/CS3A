@@ -3,6 +3,8 @@
 #include "list.h"
 #include "iterator.h"
 #include "sortedlist.h"
+#include "stack.h"
+#include "queue.h"
 
 using namespace std;
 
@@ -194,5 +196,99 @@ int main()
 
     cout << endl << endl;
 
+    cout << "=============================Stack============================" << endl << endl;
+
+    stack<int> S;
+    cout << "push : 4" << endl;
+    S.Push(4);
+    S.Print();
+    cout << endl << endl;
+    cout << "push : 1" << endl;
+    S.Push(1);
+    S.Print();
+    cout << endl << endl;
+    cout << "push : 3" << endl;
+    S.Push(3);
+    S.Print();
+    cout << endl << endl;
+    cout << "pop : " << endl;
+    int popint = S.Pop();
+    S.Print();
+    cout << endl;
+    cout << "pop value : " << popint << endl << endl;
+    cout << "top : " << S.Top() << endl << endl;
+    cout << "popping more... " << endl;
+    S.Pop();
+    S.Print();
+    cout << endl;
+    S.Pop();
+    S.Print();
+    cout << endl;
+    cout << "is stack empty?" << endl;
+    if(S.Empty())
+        cout << "yes" << endl;
+    else
+        cout << "no" << endl;
+
+
+    cout << endl << endl;
+    cout << "=============================Queue============================" << endl << endl;
+
+    queue<int> Q;
+    cout << "enQueue : 1" << endl;
+    Q.EnQueue(1);
+    Q.Print();
+    cout << endl << endl;
+
+    cout << "enQueue : 3" << endl;
+    Q.EnQueue(3);
+    Q.Print();
+    cout << endl << endl;
+
+    cout << "enQueue : 3" << endl;
+    Q.EnQueue(3);
+    Q.Print();
+    cout << endl << endl;
+
+    cout << "enQueue : 7" << endl;
+    Q.EnQueue(7);
+    Q.Print();
+    cout << endl << endl;
+
+    cout << "deQueue : " << endl;
+    int dequeue = Q.DeQueue();
+    Q.Print();
+    cout << endl;
+    cout << "dequeue value : " << dequeue << endl;
+    cout << endl;
+
+    cout << "deQueue : " << endl;
+    int dequeue2 = Q.DeQueue();
+    Q.Print();
+    cout << endl;
+    cout << "dequeue value : " << dequeue2 << endl;
+    cout << endl;
+
+    cout << "deQueue : " << endl;
+    int dequeue3 = Q.DeQueue();
+    Q.Print();
+    cout << endl;
+    cout << "dequeue value : " << dequeue3 << endl;
+    cout << endl;
+
+    cout << "deQueue : " << endl;
+    int dequeue4 = Q.DeQueue();
+    Q.Print();
+    cout << endl;
+    cout << "dequeue value : " << dequeue4 << endl;
+    cout << endl;
+
+    cout << "is queue empty? :" << endl;
+    if(Q.Empty())
+        cout << "yes" << endl;
+    else
+        cout << "no" << endl;
+
+    cout << endl << endl;
     return 0;
 }

@@ -1,0 +1,58 @@
+date --> days
+30/4/2014
+
+leaps : 488
+days : 735353
+
+
+days --> date
+735353
+30/4/2014
+leaps : 488
+
+=========================================================
+
+#==== test ++ operators ====#
+current date :
+29/4/2014
+
+date++ :
+30/4/2014
+
+++date :
+1/5/2014
+
+
+#==== test 'date1 = date2 + int' ====#
+current date :
+29/4/2014
+
+making a new date :
+1/1/1
+
+test newdate = olddate + 7
+6/5/2014
+
+test newdate = olddate - 10
+19/4/2014
+
+test daysbetween = d2 - d1
+date 1 : 8/8/2013
+date 2 : 16/8/2013
+days between date 1 and date 2 : 8
+
+test cin, cout
+cin date: 5/9/1993
+cout date: 5/9/1993
+
+Press <RETURN> to close this window...
+
+
+
+
+
+
+
+
+
+

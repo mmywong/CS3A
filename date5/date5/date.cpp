@@ -18,6 +18,32 @@ date::date(int new_day, int new_month, int new_year)
     totaldays = total_nod();
 }
 
+date operator +(const date &d1, int num)
+{
+    date d1copy;
+    d1copy.totaldays = d1.totaldays + num;
+    d1copy.day_to_date();
+    return d1copy;
+}
+
+int operator -(const date &d1, const date &d2)
+{
+    int daysbetween;
+    if(d1.totaldays > d2.totaldays)
+        daysbetween = (d1.totaldays - d2.totaldays);
+    else
+        daysbetween = (d2.totaldays - d1.totaldays);
+    return daysbetween;
+}
+
+date operator -(const date &d1, int num)
+{
+    date d1copy;
+    d1copy.totaldays = d1.totaldays - num;
+    d1copy.day_to_date();
+    return d1copy;
+}
+
 date &date::operator =(const date &d1)
 {
     day = d1.day;
@@ -126,13 +152,12 @@ istream& operator >>(istream &in, date &date1)
 {
     char slash;
     in>>date1.day>>slash>>date1.month>>slash>>date1.year;
-    cout << date1 << "< date" << endl;
     return in;
 }
 
 ostream& operator <<(ostream &out, const date &date3)
 {
-    out<<date3.day<<"/"<<date3.month<<"/"<<date3.year << " ,days : " << date3.totaldays;
+    out<<date3.day<<"/"<<date3.month<<"/"<<date3.year;
     return out;
 }
 

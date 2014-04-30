@@ -10,5 +10,7 @@ HEADERS += \
     iterator.h \
     list.h \
     node.h \
-    sortedlist.h
+    sortedlist.h \
+    stack.h \
+    queue.h
 

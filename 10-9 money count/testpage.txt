@@ -1,0 +1,115 @@
+/---initial set-up---/
+limit : 9999
+
+
+/---counter---/
+a : ten dollars
+s : dollars
+d : dimes
+f : cents
+o : overflow
+r : reset
+input which key to press followed by the value to increment
+a 4
+
+~~mom's counter~~        overflow:0
+$  4  0  0  0
+
+repeat? Y:yes
+y
+
+
+/---counter---/
+a : ten dollars
+s : dollars
+d : dimes
+f : cents
+o : overflow
+r : reset
+input which key to press followed by the value to increment
+d 9
+
+~~mom's counter~~        overflow:0
+$  4  0  9  0
+
+repeat? Y:yes
+y
+
+
+/---counter---/
+a : ten dollars
+s : dollars
+d : dimes
+f : cents
+o : overflow
+r : reset
+input which key to press followed by the value to increment
+s 2
+
+~~mom's counter~~        overflow:0
+$  4  2  9  0
+
+repeat? Y:yes
+y
+
+
+/---counter---/
+a : ten dollars
+s : dollars
+d : dimes
+f : cents
+o : overflow
+r : reset
+input which key to press followed by the value to increment
+f 1
+
+~~mom's counter~~        overflow:0
+$  4  2  9  1
+
+repeat? Y:yes
+y
+
+
+/---counter---/
+a : ten dollars
+s : dollars
+d : dimes
+f : cents
+o : overflow
+r : reset
+input which key to press followed by the value to increment
+r
+
+$  0  0  0  0
+
+repeat? Y:yes
+n
+Press <RETURN> to close this window...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
