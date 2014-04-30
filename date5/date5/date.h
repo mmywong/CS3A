@@ -15,7 +15,10 @@ public:
     friend date operator +(const date& d1, int num);
     friend date operator -(const date& d1, const date& d2);
     friend date operator -(const date& d1, int num);
-    friend date operator ++(const date& d1);
+    date& operator =      (const date& d1);
+    date operator ++      ();
+    date operator ++      (int); //postfix (always has dummy variable)
+
 
     //---date --> days functions---//
     // everythoming with ref to day 0

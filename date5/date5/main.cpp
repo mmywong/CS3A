@@ -33,6 +33,7 @@ int main()
     cout << "#==== test operators ====#" << endl;
     date d3;
     cin >> d3;
+    cout << d3;
     cout << "date++ : " << endl;
     d3++;
     cout << d3 << endl << endl;

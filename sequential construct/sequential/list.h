@@ -34,14 +34,11 @@ public:
     //---change---//
     T &operator []                  (int index);
 
-    //---sort---//
-//    void InsertSorted               (int num);
-//    void Sort                       ();
-
     //---new lists---//
     void Reverse                    ();
 
     //---markers---//
+    Iterator<T> Previous               (Iterator<T> cursor);
     Iterator<T> Begin                  ();
     Iterator<T> End                    ();
     Iterator<T> Ithnode                (int i);
@@ -259,6 +256,22 @@ void list<T>::Reverse()
         last = nEnd();
     }
     head = newlist.head;
+}
+
+template <class T>
+Iterator<T> list<T>::Previous(Iterator<T> cursor)
+{
+    if(cursor == NULL)
+        return NULL;
+    else if(cursor == Begin())
+        return End();
+    else
+    {
+        Iterator<T> walker = Begin();
+        while(!(walker.Next() == cursor))
+            walker = walker.Next();
+        return walker;
+    }
 }
 
 //---markers---//

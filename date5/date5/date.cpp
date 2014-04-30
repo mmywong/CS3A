@@ -18,6 +18,30 @@ date::date(int new_day, int new_month, int new_year)
     totaldays = total_nod();
 }
 
+date &date::operator =(const date &d1)
+{
+    day = d1.day;
+    month = d1.month;
+    year = d1.year;
+    totaldays = d1.totaldays;
+    return *this;
+}
+
+date date::operator ++()
+{
+    totaldays += 1;
+    day_to_date();
+    return *this;
+}
+
+date date::operator ++(int)
+{
+    date temp = *this;
+    totaldays += 1;
+    day_to_date();
+    return temp;
+}
+
 //---  date --> days  ---//
 int date::nod_years()
 {
@@ -102,6 +126,7 @@ istream& operator >>(istream &in, date &date1)
 {
     char slash;
     in>>date1.day>>slash>>date1.month>>slash>>date1.year;
+    cout << date1 << "< date" << endl;
     return in;
 }
 

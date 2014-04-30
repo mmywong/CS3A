@@ -112,11 +112,11 @@ int main()
     cout << "#==string list==#" << endl;
     list<string> L6;
     L6.InsertHead("test 1");
-    L6.Append("devina");
-    L6.Append("devina2");
-    L6.Append("devina3");
-    L6.Append("devina4");
-    L6.Append("devina5");
+    L6.Append("davina");
+    L6.Append("davina2");
+    L6.Append("davina3");
+    L6.Append("davina4");
+    L6.Append("davina5");
     L6.Print();
     cout << endl << endl;
 
@@ -126,7 +126,6 @@ int main()
 
     cout << "=============================Sorted List============================" << endl << endl;
 
-    cout << "testing Sort : " << endl;
     list<int> L3;
     L3.InsertHead(9);
     L3.Append(5);
@@ -144,6 +143,58 @@ int main()
     L4.Sort(L3);
     cout << "sorted list " << endl;
     L4.Print();
+
+    cout << endl << endl;
+
+    cout << "=============================Cursored List============================" << endl << endl;
+
+    CursoredList<int> L7;
+    L7.InsertHead(9);
+    L7.Append(5);
+    L7.Append(3);
+    L7.Append(4);
+    L7.Append(8);
+    L7.Append(1);
+    L7.Append(10);
+    L7.PrintC();
+    cout << endl << endl;
+
+    char command;
+    cout << "//---controls---//" << endl;
+    cout << "a : left" << endl;
+    cout << "d : right" << endl;
+    cout << "x : exit" << endl;
+    cout << " : ";
+    cin >> command;
+
+    while(command != 'x')
+    {
+        switch(command)
+        {
+            case 'a':
+            case 'A':
+                L7.GoPrev();
+                L7.PrintC();
+                cout << endl;
+                cout << ":";
+                break;
+            case 'd':
+            case 'D':
+                L7.GoNext();
+                L7.PrintC();
+                cout << endl;
+                cout << ":";
+                break;
+            default:
+                break;
+        }
+        cin >> command;
+    }
+
+    L7.PrintC();
+    cout << endl;
+    L7.GoNext();
+    L7.PrintC();
 
     cout << endl << endl;
 
