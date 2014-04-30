@@ -35,10 +35,9 @@ void CursoredList<T>::GoNext()
 template <class T>
 void CursoredList<T>::GoPrev() // ** check this!!
 {
-
     if(cursor == NULL)// this means that it's at the head
         cursor = list<T>::End();
-    cursor = list<T>::Previous(cursor);
+    cursor = this->Previous(cursor);
 //    Iterator<T> walker = list<T>::Begin();
 
 //    while(!(walker.Next() == cursor))

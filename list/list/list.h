@@ -269,7 +269,7 @@ Iterator<T> list<T>::Previous(Iterator<T> marker)
     {
         Iterator<T> walker = Begin();
         while(!(walker.Next() == marker))
-            walker = walker.Next();
+            walker++;
         return walker;
     }
 }

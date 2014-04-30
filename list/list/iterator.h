@@ -22,6 +22,7 @@ public:
 
     //---operators---//
     bool operator ==            (const Iterator<T>& itr); // checks if they are the same
+    Iterator &operator =(const Iterator<T>& itr); // checks if they are the same
     T& operator *               (); // dereference
 
     Iterator<T> operator ++        (int); //postfix (always has dummy variable)
@@ -66,6 +67,13 @@ bool Iterator<T>::operator ==(const Iterator<T>& itr)
 }
 
 template <class T>
+Iterator<T>& Iterator<T>::operator =(const Iterator<T> &itr)
+{
+     nodeptr = itr.nodeptr;
+     return *this;
+}
+
+template <class T>
 T& Iterator<T>::operator *() //pass by reference so that the value is changed (note case : *Iterator = 100)
 {
 //    if(nodeptr == NULL) //REPLACE WITH TRY STATEMENT to account for null!!
@@ -101,8 +109,11 @@ Iterator<T> Iterator<T>::Next()
 {
     //Iterator<T> itr; //here iterator points to Some dark entity(RANDOM)
     //itr points to nothing
-    nodeptr = nodeptr->next; // here, program will crash, no warning given
-    return *this;
+     // here, program will crash, no warning given
+
+    //DON'T MOVE THE POINTER IN THIS FUNCTION,
+    // ONLY RETURN THE NEXT POINTER
+    return Iterator(nodeptr->next);
 }
 
 

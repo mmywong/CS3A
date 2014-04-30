@@ -192,11 +192,6 @@ int main()
         cin >> command;
     }
 
-    L7.PrintC();
-    cout << endl;
-    L7.GoNext();
-    L7.PrintC();
-
     cout << endl << endl;
 
     return 0;
