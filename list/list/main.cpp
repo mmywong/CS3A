@@ -147,6 +147,25 @@ int main()
     L4.Print();
 
     cout << endl << endl;
+    SortedList<int> L4_2;
+    L4_2.InsertHead(11);
+    L4_2.Insert(14);
+    L4_2.Insert(31);
+    L4_2.Insert(19);
+    L4_2.Insert(80);
+    L4_2.Insert(6);
+
+    cout << "/--testing merge--/" << endl;
+    cout << "old list : " << endl;
+    L4.Print();
+    cout << endl << "new list :" << endl;
+    L4_2.Print();
+    cout << endl;
+    cout << "merge old and new list : " << endl;
+    SortedList<int> L4_merge;
+    L4_merge.Merge(L4,L4_2);
+    L4_merge.Print();
+    cout << endl << endl;
 
     cout << "=============================Cursored List============================" << endl << endl;
 

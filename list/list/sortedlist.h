@@ -16,7 +16,7 @@ public:
 
     //CHECK THIS :
     list<T> operator +=                (int i); // inserts i in a sorted list
-    list<T> Merge                      (list<T> a, list<T> b); // merges two sorted lists
+    SortedList<T> Merge                (list<T> a, list<T> b); // merges two sorted lists
 private:
 //    Iterator<T> head;
 //    void InsertHead                 (T num);//must return a node*
@@ -97,6 +97,31 @@ void SortedList<T>::Insert(T num) // inserts one node
         else /*if (num < *sortwalker)*/
             list<T>::InsertBefore(sortwalker, num);
     }
+}
+
+template <class T>
+SortedList<T> SortedList<T>::Merge(list<T> a, list<T> b)
+{
+    SortedList<T> mergedlist;
+    SortedList<T> acopy(a);
+    SortedList<T> bcopy(b);
+
+    Iterator<T> awalker = acopy.Begin();
+    while(!(acopy.isEmpty()))
+    {
+        mergedlist.Insert(SortedList<T>::Delete(awalker));
+        awalker = awalker.Next();
+    }
+
+    Iterator<T> bwalker = bcopy.Begin();
+    while(!(bcopy.isEmpty()))
+    {
+        mergedlist.Insert(SortedList<T>::Delete(bwalker));
+        bwalker = bwalker.Next();
+    }
+
+    Sort(mergedlist);
+    return mergedlist;
 }
 
 

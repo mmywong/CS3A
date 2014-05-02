@@ -1,6 +1,7 @@
 
 #ifndef WHATEVER_H
 #define WHATEVER_H
+#include "square.h"
 
 #include <QGLWidget>
 

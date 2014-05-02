@@ -1,6 +1,6 @@
 #ifndef Iterator_H
 #define Iterator_H
-#include "polynode.h"
+#include "node.h"
 #include <iostream>
 
 using namespace std;
@@ -15,29 +15,29 @@ public:
     friend class list<T>;
 
     Iterator<T>                    ()    {    nodeptr = NULL;}
-    Iterator<T>                    (polynode<T>* p);
+    Iterator<T>                    (node<T>* p);
     Iterator<T>                    (const Iterator<T> &p);
     bool IsNull                    () const;
     Iterator<T> Next               ();
 
     //---operators---//
-    bool operator ==                (const Iterator<T>& itr); // checks if they are the same
-    Iterator &operator =            (const Iterator<T>& itr); // checks if they are the same
-    T& operator *                   (); // dereference
+    bool operator ==            (const Iterator<T>& itr); // checks if they are the same
+    Iterator &operator =(const Iterator<T>& itr); // checks if they are the same
+    T& operator *               (); // dereference
 
     Iterator<T> operator ++        (int); //postfix (always has dummy variable)
     Iterator<T>& operator ++       (); // prefix (note the &)
     void Delete			();
 
  private:
-    polynode<T>* nodeptr;
+    node<T>* nodeptr;
 
 };
 
 //=============functions=============//
 
 template <class T>
-Iterator<T>::Iterator(polynode<T> *p)
+Iterator<T>::Iterator(node<T> *p)
 {
     nodeptr = p;
 }

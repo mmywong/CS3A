@@ -1,7 +1,7 @@
 #ifndef POLYNOMIAL_H
 #define POLYNOMIAL_H
 
-class polynomial
+class polynomial: SortedList<PolyNode>
 {
 public:
     polynomial();
