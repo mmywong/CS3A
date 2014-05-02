@@ -27,8 +27,12 @@ int main()
     cout << "================ polynomial ================" << endl;
 
     polynomial polylist;
-    cout << "polylist + p1 = ";
-    polylist = polylist+p1;
+//    polylist.InsertHead(p1);
+//    polylist.Append(p2);
+    cout << "polylist : " << endl;
+
+//    cout << "polylist + p1 = ";
+//    polylist = polylist+p1;
     polylist.PrintPoly();
     cout << endl;
     return 0;

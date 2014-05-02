@@ -105,21 +105,24 @@ SortedList<T> SortedList<T>::Merge(list<T> a, list<T> b)
     SortedList<T> mergedlist;
     SortedList<T> acopy(a);
     SortedList<T> bcopy(b);
-
+    T aitem, bitem;
     Iterator<T> awalker = acopy.Begin();
-    while(!(acopy.isEmpty()))
+    while(awalker.IsNull() == false)
     {
-        mergedlist.Insert(SortedList<T>::Delete(awalker));
+        aitem = *awalker;
+        SortedList<T>::Delete(awalker);
+        mergedlist.Insert(aitem);
         awalker = awalker.Next();
     }
 
     Iterator<T> bwalker = bcopy.Begin();
-    while(!(bcopy.isEmpty()))
+    while(bwalker.IsNull() == false)
     {
-        mergedlist.Insert(SortedList<T>::Delete(bwalker));
+        bitem = *bwalker;
+        SortedList<T>::Delete(bwalker);
+        mergedlist.Insert(bitem);
         bwalker = bwalker.Next();
     }
-
     Sort(mergedlist);
     return mergedlist;
 }

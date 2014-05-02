@@ -18,11 +18,14 @@ public :
     bool operator ==                    (const polyterm p);
     bool operator <                     (const polyterm p);
     bool operator >                     (const polyterm p); // compares only coef
+    bool samepower                      (const polyterm p);
 
     //---input and output---//
     friend istream& operator >>         (istream& in, polyterm& p);
     friend ostream& operator <<         (ostream& out, const polyterm& p);
 
+    int getexp                          ();
+    double getcoef                      ();
 private:
     int exp;
     double coef;

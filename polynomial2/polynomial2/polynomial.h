@@ -15,12 +15,12 @@ public:
     polynomial operator -                  (polyterm p);
     polynomial operator *                  (polyterm p);
 
-    polynomial operator +                  (const polynomial poly);
+    polynomial operator +                  (polynomial poly);
     polynomial operator -                  (const polynomial poly);
     polynomial operator *                  (const polynomial poly);
 
 //    friend ostream& operator <<         (ostream& out, const polynomial& p);
-
+    void Neaten                         ();
     void PrintPoly                      ();
 };
 

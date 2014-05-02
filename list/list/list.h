@@ -176,12 +176,16 @@ template <class T>
 node<T>* list<T>::Remove(node<T> *marker)
 {
     node<T>* walker = head;
-
-    if(marker == head) // case that you want to remove head
+    if(walker == NULL)
+        return NULL;
+    else if((walker != NULL) && (marker == head))
+    {                   // case that you want to remove head
         head = head->next;
+        return marker;
+    }
     else // case that you want to remove something from pos 1 onwards
     {
-        while(walker->next != marker && walker->next != NULL) // finds the position before marker
+        while((walker->next != marker) && (walker->next != NULL)) // finds the position before marker
             walker = walker->next;
         walker->next = marker->next; // makes the previous point at the node after marker
     }

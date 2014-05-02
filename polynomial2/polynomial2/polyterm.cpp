@@ -98,6 +98,24 @@ bool polyterm::operator >(const polyterm p)
         return false;
 }
 
+bool polyterm::samepower(const polyterm p)
+{
+    if(exp == p.exp)
+        return true;
+    else
+        return false;
+}
+
+int polyterm::getexp()
+{
+    return exp;
+}
+
+double polyterm::getcoef()
+{
+    return coef;
+}
+
 istream &operator >>(istream &in, polyterm &p)
 {
     char x, power;
