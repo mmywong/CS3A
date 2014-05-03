@@ -24,17 +24,15 @@ int main()
     cout << "(p1 > p2)? : " << (p1 > p2) << endl;
 
     cout << endl << endl;
-    cout << "================ polynomial ================" << endl;
+//    cout << "================ polynomial ================" << endl;
 
-    polynomial polylist;
-//    polylist.InsertHead(p1);
-//    polylist.Append(p2);
-    cout << "polylist : " << endl;
+//    polynomial polylist;
 
+//    cout << "polylist : " << endl;
 //    cout << "polylist + p1 = ";
-//    polylist = polylist+p1;
-    polylist.PrintPoly();
-    cout << endl;
+//    polylist.InsertPoly(p1);
+//    polylist.PrintPoly();
+//    cout << endl;
     return 0;
 }
 

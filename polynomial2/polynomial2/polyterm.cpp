@@ -25,6 +25,14 @@ const polyterm &polyterm::operator =(polyterm &right)
     return p;
 }
 
+polyterm polyterm::operator =(const polyterm p)
+{
+    polyterm r;
+    r.coef = p.coef;
+    r.exp = p.exp;
+    return r;
+}
+
 
 polyterm polyterm::operator +(const polyterm p)
 {
@@ -98,22 +106,20 @@ bool polyterm::operator >(const polyterm p)
         return false;
 }
 
-bool polyterm::samepower(const polyterm p)
+bool polyterm::samepower(polyterm a, polyterm b)
 {
-    if(exp == p.exp)
+    if(a.exp == b.exp)
         return true;
     else
         return false;
 }
 
-int polyterm::getexp()
+polyterm polyterm::neg(polyterm p)
 {
-    return exp;
-}
-
-double polyterm::getcoef()
-{
-    return coef;
+    polyterm result;
+    result.coef = p.coef*(-1);
+    result.exp = p.exp;
+    return result;
 }
 
 istream &operator >>(istream &in, polyterm &p)

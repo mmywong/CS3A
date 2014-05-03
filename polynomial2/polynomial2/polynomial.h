@@ -18,7 +18,8 @@ public:
     polynomial operator +                  (polynomial poly);
     polynomial operator -                  (const polynomial poly);
     polynomial operator *                  (const polynomial poly);
-
+    void InsertPoly                        (polyterm p);
+    polynomial negative                    (polynomial p);
 //    friend ostream& operator <<         (ostream& out, const polynomial& p);
     void Neaten                         ();
     void PrintPoly                      ();

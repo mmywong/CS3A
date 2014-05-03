@@ -12,20 +12,19 @@ public :
     polyterm                            (polyterm &copythis); // copy constructor
     const polyterm &operator =          (polyterm& right); //assignment operator
 
+    polyterm operator =                 (const polyterm p);
     polyterm operator +                 (const polyterm p); // run an error if diff exp
     polyterm operator -                 (const polyterm p);
     polyterm operator *                 (const polyterm p);
     bool operator ==                    (const polyterm p);
     bool operator <                     (const polyterm p);
     bool operator >                     (const polyterm p); // compares only coef
-    bool samepower                      (const polyterm p);
-
+    bool samepower                      (polyterm a, polyterm b);
+    polyterm neg                        (polyterm p);
     //---input and output---//
     friend istream& operator >>         (istream& in, polyterm& p);
     friend ostream& operator <<         (ostream& out, const polyterm& p);
 
-    int getexp                          ();
-    double getcoef                      ();
 private:
     int exp;
     double coef;

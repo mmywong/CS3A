@@ -19,53 +19,114 @@ const polynomial &polynomial::operator =(polynomial &right)
 
 polynomial polynomial::operator +(polyterm p)
 {
-    SortedList<polyterm>::Insert(p);
-    Neaten();
+    polynomial result = this;
+    if((this->isEmpty()) == true)
+        result.InsertHead(p);
+    else
+        result.Append(p);
+    result.Neaten();
+    return result;
 }
 
 polynomial polynomial::operator -(polyterm p)
 {
-
+    polynomial result = this;
+    if((this->isEmpty()) == true)
+        result.InsertHead(polyterm::neg(p));
+    else
+        result.Append(polyterm::neg(p));
+    result.Neaten();
+    return result;
 }
 
 polynomial polynomial::operator *(polyterm p)
 {
-    Iterator<polyterm> walker = list<polyterm>::Begin();
-//    while(walker.IsNull() == false)
+    polynomial newpoly(this);
+    Iterator<polyterm> walker = newpoly.Begin();
+    while(walker.IsNull() == false)
+        *walker = (*walker)*(p);
+    return newpoly;
 }
 
 polynomial polynomial::operator +(polynomial poly)
 {
     polynomial res;
-    res = SortedList<polyterm>::Merge(*this, poly);
+    res.Merge(*this, poly);
     return res;
 }
 
 polynomial polynomial::operator -(const polynomial poly)
 {
-
+    polynomial res;
+    res.Merge(*this, negative(poly));
+    return res;
 }
 
 polynomial polynomial::operator *(const polynomial poly)
 {
+    polynomial poly2(this);
+    Iterator<polyterm> polywalker = poly.Begin();
+    Iterator<polyterm> poly2walker = poly2.Begin();
+    while(polywalker.IsNull() == false)
+    {
+        while(poly2walker.IsNull() == false){
+            (*polywalker) = (*poly2walker)*(*polywalker);
+            poly2walker++;
+        }
+        polywalker++;
+    }
+}
 
+void polynomial::InsertPoly(polyterm p)
+{
+    if((this->isEmpty()) == true)
+        SortedList<polyterm>::InsertHead(p);
+    else
+        SortedList<polyterm>::Append(p);
+    Neaten();
+}
+
+polynomial polynomial::negative(polynomial p)
+{
+    polynomial negpoly(this);
+    Iterator<polyterm> walker = negpoly.Begin();
+    while(walker.IsNull() == false)
+    {
+        *walker = (*walker).neg(*walker);
+        walker++;
+    }
+    return negpoly;
 }
 
 void polynomial::Neaten()
 {
-    Iterator walker = list<polyterm>::Begin();
-    polyterm w, w_n;
-    polyterm combined;
+    SortedList<polyterm>::Sort(*this);
+    Iterator<polyterm> walker = this->Begin();
+    polyterm p1, p2;
     while(walker.IsNull() == false)
     {
-        w = *walker;
-        w_n = *(walker.Next());
-        if(w.getexp() == w_n.getexp())
+        p1 = *walker;
+        p2 = *(walker.Next());
+        if(p1.samepower(p1, p2))
         {
-            combined.exp = w.getexp();
-            combined.coef = w.getcoef() + w_n.getcoef();
+            p1 = (p1 + p2);
+            SortedList<polyterm>::Delete(walker.Next());
         }
     }
+
+//    Iterator<polyterm> walker = list<polyterm>::Begin();
+//    polyterm w, w_n;
+//    polyterm combined;
+//    while(walker.IsNull() == false)
+//    {
+//        w = *walker;
+//        w_n = *(walker.Next());
+//        if(w.getexp() == w_n.getexp())
+//        {
+//            combined.exp = w.getexp();
+//            combined.coef = w.getcoef() + w_n.getcoef();
+//        }
+//    }
     Sort(*this);
 }
 

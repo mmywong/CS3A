@@ -1,0 +1,16 @@
+input polyterm in format '2x^4'
+p1 : 3x^5
+p2 : 8x^5
+
+
+p1 : 3x^5
+p2 : 8x^5
+p1 + p2 = 11x^5
+p1 - p2 = -5x^5
+p1 * p2 = 24x^10
+(p1 == p2)? : 0
+(p1 < p2)? : 1
+(p1 > p2)? : 0
+
+
+Press <RETURN> to close this window...
