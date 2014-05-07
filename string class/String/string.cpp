@@ -51,3 +51,20 @@ void String::StrCpy(String source)
     *walker = NULL;
 }
 
+void String::StrCat(String source)
+{
+//    char *temp = new char[50];
+    String temp(50);
+    int index;
+    index = StrLen(str);
+    StrCpy(source); //copies one into the new array
+
+    temp = temp + index; //moves temp to position at the end of one
+    StrCpy(temp,source);
+
+    temp = temp - index; // moves temp back to the front position
+
+    delete [] dest;//clear the old dest to make space for new string
+    dest = temp;
+}
+
