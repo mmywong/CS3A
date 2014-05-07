@@ -5,7 +5,7 @@ using namespace std;
 player::player()
 {
     position = randomspace();
-    identity = '\0'; // check, not sure.
+    identity = ' '; // check, not sure.
     playermoved = false;
     steps = 0;
 }
@@ -14,6 +14,7 @@ player::player(coord pos, char name)
 {
     position = pos;
     identity = name;
+//    world[pos.i][pos.j] = new player() ????
 }
 
 void player::move(player *world[maxrow][maxcol])

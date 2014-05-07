@@ -4,14 +4,13 @@ using namespace std;
 
 counterterrorist::counterterrorist() : player::player()
 {
-    setIdentity('c');
+    setIdentity('c'); //maybe not needed because of other constructor
 }
 
-counterterrorist::counterterrorist(coord pos)
+counterterrorist::counterterrorist(coord pos, char identity)
 {
-    setIdentity('c');
+    setIdentity(identity);
     setPosition(pos);
-    cout << this->getIdentity() <<endl;
 }
 
 void counterterrorist::move(player *world[maxrow][maxcol])

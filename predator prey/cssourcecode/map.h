@@ -17,7 +17,7 @@ public:
     void step();
     void show();
     void initialize();
-
+    void random();
     bool hasmoved(); // tells you if everyone has stepped
 private:
     player* world[maxrow][maxcol];

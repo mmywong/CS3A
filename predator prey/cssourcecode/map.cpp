@@ -1,47 +1,23 @@
 #include "map.h"
+#include "terrorist.h"
+#include "counterterrorist.h"
 
 Map::Map()
 {
     for(int i=0; i<maxrow; i++)
         for(int j = 0; j<maxcol; j++)
             world[i][j] = NULL;
-
-    coord spot(1,2);
-    counterterrorist CT1;
-    counterterrorist CT2(spot);
-    world[1][2] = CT2;
+    coord pos(1,2);
+    world[1][2] = new counterterrorist(pos,'c');
 }
-
-//void Map::read()
-//{
-//    for(int i = 0; i < maxrow; i++)
-//        for (int j = 0; j < maxrow; j++)
-//            world[i][j] = new player()
-//}
-
-//void map::read(char filename[])
-//{
-//    ifstream in;
-//    in.open(filename);
-//    for(int i=0; i<maxrow; i++)
-//    {
-//        for(int j=0; j<maxcol; j++)
-//        {
-//            in>>world[i][j];
-//        }
-//    }
-//    in.close();
-//}
 
 void Map::step()
 {
-//    for(int i = 0; i < maxrow; i++)
-//    {
-//        for(int j = 0; j < maxcol; j++)
-//        {
-//            world[i][j] = new
-//        }
-//    }
+    for(int i = 0; i < maxrow; i++)
+        for(int j = 0; j < maxcol; j++)
+            if(world[i][j]->getMoveStatus() == false)
+                world[i][j]->move(world);
+
 }
 
 void Map::show()
@@ -74,6 +50,22 @@ void Map::initialize()
         coord bot(maxrow-1,j);
         world[0][j] = new player(top, '#');
         world[maxrow-1][j] = new player(bot, '#');
+    }
+}
+
+void Map::random()
+{
+    int CTnum = 10;
+    int Tnum = 60;
+    for(int i = 1; i < CTnum-1; i++)
+    {
+        coord c_randspot(rand()%(maxrow-2) + 1 , rand()%(maxcol-2) + 1); //between 1 and 19
+        world[c_randspot.i][c_randspot.j] = new counterterrorist(c_randspot,'c');
+    }
+    for(int j = 1; j < Tnum-1; j++)
+    {
+        coord ct_randspot(rand()%(maxrow-2) + 1, rand()%(maxcol-2) + 1); //between 1 and 19
+        world[ct_randspot.i][ct_randspot.j] = new terrorist(ct_randspot, 't');
     }
 }
 
