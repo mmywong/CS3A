@@ -1,10 +1,13 @@
 #include <iostream>
+#include "map.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Map dust;
+    dust.initialize();
+    dust.show();
     return 0;
 }
 

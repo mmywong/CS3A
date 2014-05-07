@@ -1,23 +1,36 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "coord.h"
+#include "constants.h"
+#include <ctime>
+#include <stdlib.h>
 
 class player
 {
 public:
     player();
+    player(coord pos, char name);
+    virtual void move(player* world[maxrow][maxcol]);
+    virtual void recruit(player* world[maxrow][maxcol]); // breed
+    virtual void fired(player* world[maxrow][maxcol]); // starve
 
-    virtual void move();
-    virtual void recruit(); // breed
-    virtual void fired(); // starve
-    virtual void show();
+    coord findspace(player* world[maxrow][maxcol], coord pos);
+    void setplayer(player* world[maxrow][maxcol]);
+    coord randomspace();
 
-    coord position;
+    //getters and setters, private member modifiers//
     coord getPosition() const;
-    void setPosition(const coord &value);
+    void setPosition(coord newposition);
+    char getIdentity() const;
+    void setIdentity(char newidentity);
+    int getSteps() const;
+    void incSteps();
+    bool getMoveStatus();
+    void setMoveStatus(bool status);
 
 private:
-
+    coord position;
+    char identity;
     int steps;
     bool playermoved;
 };

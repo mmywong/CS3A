@@ -5,13 +5,15 @@
 #include "counterterrorist.h"
 #include "constants.h"
 #include <fstream>
+#include <iostream>
+
 using namespace std;
 //"grid" / "world"
-class map
+class Map
 {
 public:
-    map();
-
+    Map();
+    void read();
     void step();
     void show();
     void initialize();
