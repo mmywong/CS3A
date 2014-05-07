@@ -29,9 +29,9 @@ String::~String()
     while(*walker != '\0')
     {
         delete walker;
-        walker++;
+        walker++; // check this!
     }
-
+    str = NULL;
 }
 
 int String::StrLen()
