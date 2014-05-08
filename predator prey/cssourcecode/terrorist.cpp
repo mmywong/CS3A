@@ -1,12 +1,7 @@
 #include "terrorist.h"
 
-terrorist::terrorist() : player::player()
-{
-    identity = 't';
-//    setIdentity('t'); //maybe not needed cause of other constructor
-}
 
-terrorist::terrorist(coord pos)
+terrorist::terrorist(coord pos) : player(pos)
 {
     identity = 't';
 //    setIdentity(identity);
@@ -17,10 +12,12 @@ void terrorist::move(player *world[maxrow][maxcol])
 {
     coord nospace(-1,-1);
     coord currentspot = getPosition();
+    //you forgot to update your position somewhere?
     coord emptyspace = findspace(world,currentspot);
 
     if((getMoveStatus()==false) && (emptyspace != nospace))
     {
+        world[currentspot.i][currentspot.j]->setPosition(emptyspace); //update the pos
         world[emptyspace.i][emptyspace.j] = world[currentspot.i][currentspot.j];
         world[currentspot.i][currentspot.j] = NULL;
         if(getSteps()%3 == 0)

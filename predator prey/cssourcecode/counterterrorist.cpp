@@ -2,14 +2,7 @@
 #include <iostream>
 using namespace std;
 
-counterterrorist::counterterrorist() : player::player()
-{
-    killcount = 0;
-    killstep = 0;
-    identity = 'c'; //maybe not needed because of other constructor
-}
-
-counterterrorist::counterterrorist(coord pos)
+counterterrorist::counterterrorist(coord pos) : player(pos)
 {
     killcount = 0;
     killstep = 0;

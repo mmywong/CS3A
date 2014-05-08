@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    srand (time(NULL));
     char option;
     Map dust;
     dust.initialize();

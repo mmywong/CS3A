@@ -40,15 +40,15 @@ void Map::initialize()
     {
         coord left(i,0);
         coord right(i,maxcol-1);
-        world[i][0] = new player(left, '#');
-        world[i][maxcol-1] = new player(right, '#');
+        world[i][0] = new player(left);
+        world[i][maxcol-1] = new player(right);
     }
     for(int j = 0; j < maxcol; j++)
     {
         coord top(0,j);
         coord bot(maxrow-1,j);
-        world[0][j] = new player(top, '#');
-        world[maxrow-1][j] = new player(bot, '#');
+        world[0][j] = new player(top);
+        world[maxrow-1][j] = new player(bot);
     }
 }
 

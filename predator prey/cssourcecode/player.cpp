@@ -2,21 +2,12 @@
 #include <iostream>
 using namespace std;
 
-player::player()
-{
-    position = randomspace();
-//    identity = ' '; // check, not sure.
-    playermoved = false;
-    steps = 0;
-}
-
-player::player(coord pos, char name)
+player::player(coord pos)
 {
     position = pos;
     identity = name;
     playermoved = false;
     steps = 0;
-//    world[pos.i][pos.j] = new player() ????
 }
 
 void player::move(player *world[maxrow][maxcol])
@@ -35,7 +26,6 @@ coord player::findspace(player *world[maxrow][maxcol], coord pos)
 {
     coord spaces[8];
     int index = 0;
-    srand (time(NULL));
 
     for(int si=pos.i-1; si<pos.i+2; si++)
     {
