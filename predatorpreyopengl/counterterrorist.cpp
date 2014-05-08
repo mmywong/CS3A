@@ -9,6 +9,10 @@ counterterrorist::counterterrorist(coord pos) : player(pos), killcount(0), kills
 
 counterterrorist::~counterterrorist()
 {
+    //CHECK THIS!!
+//    for(int i = 0; i < maxrow; i++)
+//        for(int j = 0; j < maxcol; j++)
+            delete this;
 }
 
 void counterterrorist::move(player *world[maxrow][maxcol])

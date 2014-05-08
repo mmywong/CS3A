@@ -4,9 +4,8 @@
 #include <iostream>
 #include "terrorist.h"
 #include "counterterrorist.h"
-#include "map.h"
-#include "constants.h"
-
+#include "csmap.h"
+#include "mypanelopengl.h"
 using namespace std;
 
 MyPanelOpenGL::MyPanelOpenGL(QWidget *parent) :
@@ -15,8 +14,11 @@ MyPanelOpenGL::MyPanelOpenGL(QWidget *parent) :
     setFocusPolicy(Qt::StrongFocus);
     timer=NULL;
     r=0;
-    dust.init();
-    dust.read("configfile.txt");
+//    csmap dust;
+//    dust.initialize();
+//    dust.random();
+//    dust.show();
+//    dust.read("configfile.txt");
 }
 
 void MyPanelOpenGL::initializeGL()
@@ -31,13 +33,16 @@ void MyPanelOpenGL::initializeGL()
 
 void MyPanelOpenGL::paintGL()
 {
+    dust.initialize();
+    dust.random();
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     //    static float i(0.01),j(0.007);
 
-    for(int i=1; i<maxrow-1; i++)
+    for(int i=0; i<maxrow; i++)
     {
-        for(int j=1; j<maxcol-1; j++)
+        for(int j=0; j<maxcol; j++)
         {
             x = -1.0 + (2.0/maxcol)*j;
             y = 1.0 - (2.0/maxrow)*i;
@@ -45,68 +50,70 @@ void MyPanelOpenGL::paintGL()
         if(dust.world[i][j]->identity == 'c')
             glColor3f(0.0f, 0.6f, 0.55f);
         else if (dust.world[i][j]->identity == 't')
-            glColor3f(0.0f, 0.1f, 0.3f);
+            glColor3f(0.0f, 1.0f, 1.0f);
         else
             glColor3f(0.0f, 0.0f, 0.0f);
 
         glBegin(GL_QUADS);
           glVertex2f(x,y);                           //top left hand corner
-          glVertex2f(x+(2.0/max_col), y);             //top right hand corner
-          glVertex2f(x+(2.0/max_col), y+(2.0/max_row)); //bottom right hand corner
-          glVertex2f(x, y+(2.0/max_row));             //bottom left hand corner
+          glVertex2f(x+(2.0/maxcol), y);             //top right hand corner
+          glVertex2f(x+(2.0/maxcol), y+(2.0/maxrow)); //bottom right hand corner
+          glVertex2f(x, y+(2.0/maxrow));             //bottom left hand corner
         glEnd();
 
         }
     }
 }
 
-void MyPanelOpenGL::keyPressEvent(QKeyEvent *e)
-{
-    switch(e->key())
-    {
-    case Qt::Key_Down:
-        run();
-        break;
-    case Qt::Key_Up:
-        stop();
-        break;
-    }
-}
+//void MyPanelOpenGL::keyPressEvent(QKeyEvent *e)
+//{
+//    switch(e->key())
+//    {
+//    case Qt::Key_Down:
+//        run();
+//        break;
+//    case Qt::Key_Up:
+//        stop();
+//        break;
+//    }
+//}
 
 int MyPanelOpenGL::conv_x_j(int x)
 {
-    return (x/( (geometry().bottomRight().x()) /max_col)) +1.0;
-    cout<<"x:"<<(x/( (geometry().bottomRight().x()) /max_col)) + 1.0<<endl;
+    return (x/( (geometry().bottomRight().x()) /maxcol)) +1.0;
+    cout<<"x:"<<(x/( (geometry().bottomRight().x()) /maxcol)) + 1.0<<endl;
 }
 int MyPanelOpenGL::conv_y_i(int y)
 {
-    return (y/( (geometry().bottomRight().y()) /max_row)) + 1.0;
-    cout<<"y:"<<(y/( (geometry().bottomRight().y()) /max_row)) + 1.0<<endl;
+    return (y/( (geometry().bottomRight().y()) /maxrow)) + 1.0;
+    cout<<"y:"<<(y/( (geometry().bottomRight().y()) /maxrow)) + 1.0<<endl;
 }
 
-void MyPanelOpenGL::mousePressEvent(QMouseEvent *e)
-{
-    if (e->button() == Qt::LeftButton)
-    {
-        int j = conv_x_j(mouse_x);
-        int i = conv_y_i(mouse_y);
+//void MyPanelOpenGL::mousePressEvent(QMouseEvent *e)
+//{
+//    csmap dust;
+//    if (e->button() == Qt::LeftButton)
+//    {
+//        int j = conv_x_j(mouse_x);
+//        int i = conv_y_i(mouse_y);
 
-        if(world[i][j] == 0)
-            world[i][j] = 1;
-        else
-            world[i][j] = 0;
-    }
-    repaint();
-    updateGL();
-}
+//        //just for the sake of keeping old code although doesn't make sense
+//        if(dust.world[i][j]->identity == NULL)
+//            dust.world[i][j]->identity = 'c';
+//        else
+//            dust.world[i][j]->identity = 't';
+//    }
+//    repaint();
+//    updateGL();
+//}
 
-void MyPanelOpenGL::mouseMoveEvent(QMouseEvent *e)
-{
-      mouse_x = e->x();
-      mouse_y = e->y();
-      cout<<"mouse x:"<<mouse_x<<endl;
-      cout<<"mouse y:"<<mouse_y<<endl;
-}
+//void MyPanelOpenGL::mouseMoveEvent(QMouseEvent *e)
+//{
+//      mouse_x = e->x();
+//      mouse_y = e->y();
+//      cout<<"mouse x:"<<mouse_x<<endl;
+//      cout<<"mouse y:"<<mouse_y<<endl;
+//}
 
 
 void MyPanelOpenGL::run()
@@ -128,24 +135,29 @@ void MyPanelOpenGL::stop()
     }
 }
 
-void MyPanelOpenGL::process()
-{
-    paintGL();
-    dust.step();
-    repaint();
-    updateGL();
-}
+//void MyPanelOpenGL::process()
+//{
+//    csmap dust;
+//    paintGL();
+//    dust.step();
+//    repaint();
+//    updateGL();
+//}
 
-void MyPanelOpenGL::clear()
-{
-    dust.init();
-//    init(world);
-    process();
-}
+//void MyPanelOpenGL::clear()
+//{
+//    csmap dust;
+//    dust.initialize();
+////    dust.random();
+////    dust.show();
+////    init(world);
+//    process();
+//}
 
 //void MyPanelOpenGL::random()
 //{
-//    Random(world);
+//    csmap dust;
+//    dust.random();
 //    process();
 //}
 
@@ -176,36 +188,36 @@ void MyPanelOpenGL::resizeGL(int width, int height)
 
 }
 
-void MyPanelOpenGL::clicktostart()
-{
-    run();
-}
+//void MyPanelOpenGL::clicktostart()
+//{
+//    run();
+//}
 
-void MyPanelOpenGL::pause()
-{
-    stop();
-}
+//void MyPanelOpenGL::pause()
+//{
+//    stop();
+//}
 
-void MyPanelOpenGL::save()
-{
-    dust.save();
+//void MyPanelOpenGL::save()
+//{
+//    dust.save();
 //    savefile(world);
-}
+//}
 
-void MyPanelOpenGL::loadlastsave()
-{
-    dust.read("savefile.txt");
+//void MyPanelOpenGL::loadlastsave()
+//{
+//    dust.read("savefile.txt");
 //    readfile(world, 1, 1, "savefile.txt");
-    paintGL();
-    repaint();
-    updateGL();
-}
+//    paintGL();
+//    repaint();
+//    updateGL();
+//}
 
-void MyPanelOpenGL::reset()
-{
-    dust.read("configfile.txt");
+//void MyPanelOpenGL::reset()
+//{
+//    dust.read("configfile.txt");
 //    readfile(world, 1, 1, "configfile.txt");
-    paintGL();
-    repaint();
-    updateGL();
-}
+//    paintGL();
+//    repaint();
+//    updateGL();
+//}

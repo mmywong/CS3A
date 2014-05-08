@@ -1,14 +1,14 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef CSMAP_H
+#define CSMAP_H
 
 //---libraries for opengl---//
 #include <iostream>
-#include <stdio.h>      /* printf, NULL */
-#include <stdlib.h>
-#include <time.h>
-#include <fstream>
-#include <iomanip>
-#include "mypanelopengl.h"
+//#include <stdio.h>      /* printf, NULL */
+//#include <stdlib.h>
+//#include <time.h>
+//#include <fstream>
+//#include <iomanip>
+//#include "mypanelopengl.h"
 //-------------------------//
 
 #include "player.h"
@@ -21,10 +21,10 @@
 
 using namespace std;
 //"grid" / "world"
-class Map
+class csmap
 {
 public:
-    Map();
+    csmap();
     void read();
     void step();
     void show();
@@ -36,4 +36,4 @@ public:
     player* world[maxrow][maxcol];
 };
 
-#endif // MAP_H
+#endif // CSMAP_H

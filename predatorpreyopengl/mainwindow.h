@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+//#include "csmap.h"
 #include <QMainWindow>
 
 namespace Ui {

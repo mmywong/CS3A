@@ -8,7 +8,7 @@
 #include <time.h>
 #include <fstream>
 #include <iomanip>
-#include "mypanelopengl.h"
+//#include "mypanelopengl.h"
 //-------------------------//
 
 #include "player.h"

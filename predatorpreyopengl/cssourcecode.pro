@@ -15,9 +15,9 @@ SOURCES += main.cpp\
     mypanelopengl.cpp \
     coord.cpp \
     counterterrorist.cpp \
-    map.cpp \
     player.cpp \
-    terrorist.cpp
+    terrorist.cpp \
+    csmap.cpp
 
 HEADERS  += mainwindow.h \
     mypanelopengl.h \
@@ -25,8 +25,8 @@ HEADERS  += mainwindow.h \
     constants.h \
     coord.h \
     counterterrorist.h \
-    map.h \
     player.h \
-    terrorist.h
+    terrorist.h \
+    csmap.h
 
 FORMS    += mainwindow.ui

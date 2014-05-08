@@ -1,15 +1,15 @@
-#include "map.h"
+#include "csmap.h"
 #include "terrorist.h"
 #include "counterterrorist.h"
 
-Map::Map()
+csmap::csmap()
 {
     for(int i=0; i<maxrow; i++)
         for(int j = 0; j<maxcol; j++)
             world[i][j] = NULL;
 }
 
-void Map::step()
+void csmap::step()
 {
     setflagsfalse();
     for(int i = 1; i < maxrow-1; i++)
@@ -19,7 +19,7 @@ void Map::step()
                     world[i][j]->move(world);
 }
 
-void Map::show()
+void csmap::show()
 {
     for(int i = 0; i < maxrow; i++)
     {
@@ -36,7 +36,7 @@ void Map::show()
     }
 }
 
-void Map::initialize()
+void csmap::initialize()
 {
     for(int i=0; i < maxrow; i++)
     {
@@ -54,7 +54,7 @@ void Map::initialize()
     }
 }
 
-void Map::random()
+void csmap::random()
 {
     int CTnum = 20;
     int Tnum = 80;
@@ -70,7 +70,7 @@ void Map::random()
     }
 }
 
-bool Map::hasmoved()
+bool csmap::hasmoved()
 {
     for(int i = 1; i < maxrow-1; i++)
         for(int j = 1; j < maxcol-1; j++)
@@ -80,7 +80,7 @@ bool Map::hasmoved()
     return true;
 }
 
-void Map::setflagsfalse()
+void csmap::setflagsfalse()
 {
     for(int i = 1; i < maxrow-1; i++)
         for (int j = 1; j < maxcol-1; j++)

@@ -8,6 +8,11 @@ terrorist::terrorist(coord pos) : player(pos)
 
 terrorist::~terrorist()
 {
+    delete this;
+    //note : should I start from 0 to max or from 1 to max-1?
+//    for(int i = 0; i < maxrow; i++)
+//        for(int j = 0; j < maxcol; j++)
+//            delete world[i][j];
 }
 
 void terrorist::move(player *world[maxrow][maxcol])
