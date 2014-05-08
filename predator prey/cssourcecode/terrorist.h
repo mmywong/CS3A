@@ -8,6 +8,7 @@ class terrorist : public player
 {
 public:
     terrorist(coord pos);
+    ~terrorist();
     void move(player* world[maxrow][maxcol]);
     void recruit(player* world[maxrow][maxcol]); //breed
 };

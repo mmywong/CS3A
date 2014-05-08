@@ -9,6 +9,7 @@ class player
 {
 public:
     player(coord pos);
+    virtual ~player();
     virtual void move(player* world[maxrow][maxcol]);
     virtual void recruit(player* world[maxrow][maxcol]); // breed
     virtual void fired(player* world[maxrow][maxcol]); // starve

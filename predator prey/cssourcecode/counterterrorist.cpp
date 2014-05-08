@@ -7,6 +7,10 @@ counterterrorist::counterterrorist(coord pos) : player(pos), killcount(0), kills
     identity = 'c';
 }
 
+counterterrorist::~counterterrorist()
+{
+}
+
 void counterterrorist::move(player *world[maxrow][maxcol])
 {
     //options : move normally, recruit, fired, kill
@@ -93,7 +97,7 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
         return nospace;
     }
     else
-        return *(plotpoint + (rand()%(index)) );
+        return plotpoint[ rand()%(index) ];
 }
 
 void counterterrorist::resetKillCount()

@@ -6,6 +6,10 @@ terrorist::terrorist(coord pos) : player(pos)
     identity = 't';
 }
 
+terrorist::~terrorist()
+{
+}
+
 void terrorist::move(player *world[maxrow][maxcol])
 {
     coord nospace(-1,-1);

@@ -9,6 +9,7 @@ class counterterrorist : public player
 {
 public:
     counterterrorist(coord pos);
+    ~counterterrorist();
     void move(player* world[maxrow][maxcol]);
     void recruit(player* world[maxrow][maxcol]); // breed
     void fired(player* world[maxrow][maxcol]); // starve

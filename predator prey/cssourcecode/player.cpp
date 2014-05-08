@@ -2,11 +2,15 @@
 #include <iostream>
 using namespace std;
 
-player::player(coord pos)
+player::player(coord pos) : identity('#')
 {
     position = pos;
     playermoved = false;
     steps = 0;
+}
+
+player::~player()
+{
 }
 
 void player::move(player *world[maxrow][maxcol])
