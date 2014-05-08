@@ -2,12 +2,14 @@
 
 terrorist::terrorist() : player::player()
 {
-    setIdentity('t'); //maybe not needed cause of other constructor
+    identity = 't';
+//    setIdentity('t'); //maybe not needed cause of other constructor
 }
 
-terrorist::terrorist(coord pos, char identity)
+terrorist::terrorist(coord pos, char newidentity)
 {
-    setIdentity(identity);
+    identity = newidentity;
+//    setIdentity(identity);
     setPosition(pos);
 }
 

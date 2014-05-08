@@ -4,12 +4,17 @@ using namespace std;
 
 counterterrorist::counterterrorist() : player::player()
 {
-    setIdentity('c'); //maybe not needed because of other constructor
+    killcount = 0;
+    killstep = 0;
+    identity = 'c'; //maybe not needed because of other constructor
 }
 
-counterterrorist::counterterrorist(coord pos, char identity)
+counterterrorist::counterterrorist(coord pos, char newidentity)
 {
-    setIdentity(identity);
+    killcount = 0;
+    killstep = 0;
+    identity = newidentity;
+//    setIdentity(identity);
     setPosition(pos);
 }
 
@@ -82,17 +87,20 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
     int index = 0;
     srand (time(NULL));
 
-    for(int i=currentspot.i-1; i<currentspot.i+2; i++)
+    for(int li=currentspot.i-1; li<currentspot.i+2; li++)
     {
-        for(int j=currentspot.j-1; j<currentspot.j+2; j++)
+        for(int lj=currentspot.j-1; lj<currentspot.j+2; lj++)
         {
-            if(world[i][j]->getIdentity() == 't')
+            if(world[li][lj]->identity == 't')
             {
-                spaces[index].i=i;
-                spaces[index].j=j;
+                spaces[index].i=li;
+                spaces[index].j=lj;
                 index++;
             }
-            else /*if(world[i][j] == NULL)*/
+            else if(world[li][lj]->identity == 'c')
+            {
+            }
+            else
             {
             }
         }

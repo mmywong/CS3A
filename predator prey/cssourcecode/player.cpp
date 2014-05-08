@@ -88,15 +88,6 @@ void player::setPosition(coord newposition)
     position = newposition;
 }
 
-char player::getIdentity()
-{
-    return identity;
-}
-
-void player::setIdentity(char newidentity)
-{
-    identity = newidentity;
-}
 int player::getSteps() const
 {
     return steps;
