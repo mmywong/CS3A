@@ -25,10 +25,10 @@ void terrorist::move(player *world[maxrow][maxcol])
     {
         world[emptyspace.i][emptyspace.j] = world[getPosition().i][getPosition().j];
         world[getPosition().i][getPosition().j] = NULL;
+        if(getSteps()%3 == 0)
+            world[emptyspace.i][emptyspace.j]->recruit(world);
         setMoveStatus(true);
     }
-    if(getSteps()%3 == 0)
-        recruit(world);
     incSteps();
 }
 
