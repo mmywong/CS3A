@@ -60,12 +60,12 @@ void Map::random()
     for(int i = 1; i < CTnum-1; i++)
     {
         coord c_randspot(rand()%(maxrow-2) + 1 , rand()%(maxcol-2) + 1); //between 1 and 19
-        world[c_randspot.i][c_randspot.j] = new counterterrorist(c_randspot,'c');
+        world[c_randspot.i][c_randspot.j] = new counterterrorist(c_randspot);
     }
     for(int j = 1; j < Tnum-1; j++)
     {
         coord ct_randspot(rand()%(maxrow-2) + 1, rand()%(maxcol-2) + 1); //between 1 and 19
-        world[ct_randspot.i][ct_randspot.j] = new terrorist(ct_randspot, 't');
+        world[ct_randspot.i][ct_randspot.j] = new terrorist(ct_randspot);
     }
 }
 

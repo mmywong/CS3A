@@ -6,9 +6,9 @@ terrorist::terrorist() : player::player()
 //    setIdentity('t'); //maybe not needed cause of other constructor
 }
 
-terrorist::terrorist(coord pos, char newidentity)
+terrorist::terrorist(coord pos)
 {
-    identity = newidentity;
+    identity = 't';
 //    setIdentity(identity);
     setPosition(pos);
 }
@@ -34,5 +34,5 @@ void terrorist::recruit(player *world[maxrow][maxcol])
 {
     coord currentspot = getPosition();
     coord emptyspace = findspace(world,currentspot);
-    world[emptyspace.i][emptyspace.j] = new terrorist(emptyspace, 't');
+    world[emptyspace.i][emptyspace.j] = new terrorist(emptyspace);
 }

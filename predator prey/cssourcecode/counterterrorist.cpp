@@ -9,11 +9,11 @@ counterterrorist::counterterrorist() : player::player()
     identity = 'c'; //maybe not needed because of other constructor
 }
 
-counterterrorist::counterterrorist(coord pos, char newidentity)
+counterterrorist::counterterrorist(coord pos)
 {
     killcount = 0;
     killstep = 0;
-    identity = newidentity;
+    identity = 'c';
 //    setIdentity(identity);
     setPosition(pos);
 }
@@ -57,7 +57,7 @@ void counterterrorist::recruit(player *world[maxrow][maxcol])
 {
     coord currentspot = getPosition();
     coord emptyspace = findspace(world,currentspot);
-    world[emptyspace.i][emptyspace.j] = new counterterrorist(emptyspace, 'c');
+    world[emptyspace.i][emptyspace.j] = new counterterrorist(emptyspace);
 }
 
 void counterterrorist::fired(player *world[maxrow][maxcol])
@@ -83,7 +83,7 @@ void counterterrorist::kill(player *world[maxrow][maxcol])
 
 coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord currentspot)
 {
-    coord** plotpoint = new coord*[8];
+    coord* plotpoint = new coord[8];
     int index = 0;
     srand (time(NULL));
 
@@ -93,8 +93,8 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
         {
             if(world[li][lj]->identity == 't')
             {
-                *(plotpoint+index)->i = li;
-                *(plotpoint+index)->j = lj;
+                plotpoint[index].i = li;
+                plotpoint[index].j = lj;
                 index++;
             }
             else if(world[li][lj]->identity == 'c')
@@ -114,7 +114,7 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
     else
     {
         int randomcoor = (rand()%(index));
-        return plotpoint+randomcoor;
+        return *(plotpoint+randomcoor);
     }
     delete plotpoint;
 }
