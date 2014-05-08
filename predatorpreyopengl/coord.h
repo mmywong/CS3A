@@ -7,7 +7,10 @@ public:
     coord();
     coord(int newi, int newj);
 
-private:
+    bool operator == (const coord &right);
+    bool operator != (const coord &right);
+    void operator = (const coord &right);
+
     int i;
     int j;
 };

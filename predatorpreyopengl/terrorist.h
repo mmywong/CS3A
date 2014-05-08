@@ -9,17 +9,18 @@
 #include <fstream>
 #include <iomanip>
 #include "mypanelopengl.h"
-//-------------------------//
-
+//--------------------------//
 #include "player.h"
+#include "constants.h"
 //"prey"
 
 class terrorist : public player
 {
 public:
-    terrorist();
-    void move();
-    void recruit();
+    terrorist(coord pos);
+    ~terrorist();
+    void move(player* world[maxrow][maxcol]);
+    void recruit(player* world[maxrow][maxcol]); //breed
 };
 
 #endif // TERRORIST_H

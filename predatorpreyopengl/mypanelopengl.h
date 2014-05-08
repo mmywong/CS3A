@@ -11,6 +11,8 @@
 const int max_col = 59;
 const int max_row = 59;
 
+//CALLED GLWIDGET IN WILBERT'S
+
 class MyPanelOpenGL : public QGLWidget
 {
     Q_OBJECT
@@ -47,8 +49,8 @@ protected:
 
 private:
     Map dust;
-    int world[maxrow][maxcol];
-    int world2[maxrow][maxcol];
+//    int world[maxrow][maxcol];
+//    int world2[maxrow][maxcol];
     float r;
     float x, y;
     float mouse_x, mouse_y;

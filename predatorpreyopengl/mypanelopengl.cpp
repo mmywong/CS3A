@@ -1,10 +1,11 @@
-#include <QDebug>
+﻿#include <QDebug>
 #include "GL/glu.h"
 #include <cmath>
 #include <iostream>
 #include "terrorist.h"
 #include "counterterrorist.h"
 #include "map.h"
+#include "constants.h"
 
 using namespace std;
 
@@ -34,15 +35,17 @@ void MyPanelOpenGL::paintGL()
     glLoadIdentity();
     //    static float i(0.01),j(0.007);
 
-    for(int i=1; i<max_row-1; i++)
+    for(int i=1; i<maxrow-1; i++)
     {
-        for(int j=1; j<max_col-1; j++)
+        for(int j=1; j<maxcol-1; j++)
         {
-            x = -1.0 + (2.0/max_col)*j;
-            y = 1.0 - (2.0/max_row)*i;
+            x = -1.0 + (2.0/maxcol)*j;
+            y = 1.0 - (2.0/maxrow)*i;
 
-        if(world[i][j] == 1)
+        if(dust.world[i][j]->identity == 'c')
             glColor3f(0.0f, 0.6f, 0.55f);
+        else if (dust.world[i][j]->identity == 't')
+            glColor3f(0.0f, 0.1f, 0.3f);
         else
             glColor3f(0.0f, 0.0f, 0.0f);
 

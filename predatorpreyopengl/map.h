@@ -15,20 +15,25 @@
 #include "terrorist.h"
 #include "counterterrorist.h"
 #include "constants.h"
-//"grid" / "world"
-using namespace std;
+#include "coord.h"
+#include <fstream>
+#include <iostream>
 
+using namespace std;
+//"grid" / "world"
 class Map
 {
 public:
     Map();
-    void read(char filename[]);
-    void save();
+    void read();
     void step();
-//    void show();
-    void init();
-private:
-    int world[maxrow][maxcol];
+    void show();
+    void initialize();
+    void random();
+    bool hasmoved(); // tells you if everyone has stepped
+    void setflagsfalse();
+//private:
+    player* world[maxrow][maxcol];
 };
 
 #endif // MAP_H
