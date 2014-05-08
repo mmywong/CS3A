@@ -16,6 +16,7 @@ terrorist::terrorist(coord pos)
 void terrorist::move(player *world[maxrow][maxcol])
 {
     //WOW, there's memory leak here
+    //Say i put something here
     coord nospace(-1,-1);
     coord currentspot = getPosition();
     coord emptyspace = findspace(world,currentspot);
