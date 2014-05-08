@@ -5,7 +5,6 @@ using namespace std;
 player::player(coord pos)
 {
     position = pos;
-    identity = name;
     playermoved = false;
     steps = 0;
 }

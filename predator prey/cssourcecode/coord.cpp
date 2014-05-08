@@ -25,3 +25,9 @@ bool coord::operator !=(const coord &right)
     else
         return true;
 }
+
+void coord::operator =(const coord &right)
+{
+    j = right.j;
+    i = right.i;
+}

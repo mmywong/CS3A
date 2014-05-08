@@ -4,8 +4,6 @@
 terrorist::terrorist(coord pos) : player(pos)
 {
     identity = 't';
-//    setIdentity(identity);
-    setPosition(pos);
 }
 
 void terrorist::move(player *world[maxrow][maxcol])

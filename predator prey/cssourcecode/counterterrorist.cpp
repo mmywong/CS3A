@@ -2,13 +2,9 @@
 #include <iostream>
 using namespace std;
 
-counterterrorist::counterterrorist(coord pos) : player(pos)
+counterterrorist::counterterrorist(coord pos) : player(pos), killcount(0), killstep(0)
 {
-    killcount = 0;
-    killstep = 0;
     identity = 'c';
-//    setIdentity(identity);
-    setPosition(pos);
 }
 
 void counterterrorist::move(player *world[maxrow][maxcol])
