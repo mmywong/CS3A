@@ -15,11 +15,11 @@ void terrorist::move(player *world[maxrow][maxcol])
 
     if((getMoveStatus()==false) && (emptyspace != nospace))
     {
-        world[currentspot.i][currentspot.j]->setPosition(emptyspace); //update the pos
-        world[emptyspace.i][emptyspace.j] = world[currentspot.i][currentspot.j];
+        setPosition(emptyspace); // update the pos
+        world[emptyspace.i][emptyspace.j] = this;
         world[currentspot.i][currentspot.j] = NULL;
         if(getSteps()%3 == 0)
-            world[emptyspace.i][emptyspace.j]->recruit(world);
+           recruit(world);
         setMoveStatus(true);
     }
     incSteps();
