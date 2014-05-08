@@ -1,5 +1,6 @@
 #include "terrorist.h"
-
+#include <iostream>
+using namespace std;
 
 terrorist::terrorist(coord pos) : player(pos)
 {
@@ -12,6 +13,7 @@ terrorist::~terrorist()
 
 void terrorist::move(player *world[maxrow][maxcol])
 {
+    incSteps();
     coord nospace(-1,-1);
     coord currentspot = getPosition();
     //you forgot to update your position somewhere?
@@ -26,7 +28,8 @@ void terrorist::move(player *world[maxrow][maxcol])
            recruit(world);
         setMoveStatus(true);
     }
-    incSteps();
+//    cout << "terrorist steps : " << getSteps() << endl;
+
 }
 
 void terrorist::recruit(player *world[maxrow][maxcol])

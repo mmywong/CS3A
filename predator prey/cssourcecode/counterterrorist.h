@@ -17,6 +17,7 @@ public:
 
     coord findterrorist(player* world[maxrow][maxcol], coord currentspot);
     void resetKillCount();
+    void resetKillStep();
 private:
     int killcount; // how many kills
     int killstep; // how many steps since last kill

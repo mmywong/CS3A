@@ -25,12 +25,12 @@ void Map::show()
     {
         for(int j = 0; j < maxcol; j++)
         {
-            cout << " ";
+//            cout << " ";
             if(world[i][j] == NULL)
                 cout << " ";
             else // print according to identity
                 cout << world[i][j]->identity;
-            cout << " ";
+//            cout << " ";
         }
         cout << endl;
     }
