@@ -83,7 +83,7 @@ void counterterrorist::kill(player *world[maxrow][maxcol])
 
 coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord currentspot)
 {
-    coord spaces[8];
+    coord** plotpoint = new coord*[8];
     int index = 0;
     srand (time(NULL));
 
@@ -93,8 +93,8 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
         {
             if(world[li][lj]->identity == 't')
             {
-                spaces[index].i=li;
-                spaces[index].j=lj;
+                *(plotpoint+index)->i = li;
+                *(plotpoint+index)->j = lj;
                 index++;
             }
             else if(world[li][lj]->identity == 'c')
@@ -114,8 +114,9 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
     else
     {
         int randomcoor = (rand()%(index));
-        return spaces[randomcoor];
+        return plotpoint+randomcoor;
     }
+    delete plotpoint;
 }
 
 void counterterrorist::resetKillCount()
