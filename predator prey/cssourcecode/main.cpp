@@ -6,26 +6,17 @@ using namespace std;
 int main()
 {
     srand (time(NULL));
-    char option;
     Map dust;
     dust.initialize();
     dust.random();
     dust.show();
 
-    cin>>option;
 
-    while(option != 'x')
-    {
-        switch(option)
-        {
-        case 's':
-            dust.step();
-            dust.show();
-            break;
-        default:
-            break;
-        }
-        cin>>option;
+    bool done = true;
+    while(done) {
+        dust.step();
+        dust.show();
+        cin.get();
     }
 
     return 0;
