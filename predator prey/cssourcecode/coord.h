@@ -8,6 +8,8 @@ public:
     coord(int newi, int newj);
 
     bool operator == (const coord &right);
+    bool operator != (const coord &right);
+
     int i;
     int j;
 };

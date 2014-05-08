@@ -7,16 +7,16 @@ Map::Map()
     for(int i=0; i<maxrow; i++)
         for(int j = 0; j<maxcol; j++)
             world[i][j] = NULL;
-    coord pos(1,2);
-    world[1][2] = new counterterrorist(pos,'c');
 }
 
 void Map::step()
 {
+    setflagsfalse();
     for(int i = 0; i < maxrow; i++)
         for(int j = 0; j < maxcol; j++)
-            if(world[i][j]->getMoveStatus() == false)
-                world[i][j]->move(world);
+            if(world[i][j])
+                if(world[i][j]->getMoveStatus() == false)
+                    world[i][j]->move(world);
 
 }
 
@@ -27,11 +27,11 @@ void Map::show()
         for(int j = 0; j < maxcol; j++)
         {
             if(world[i][j] == NULL)
-                cout << "   ";
+                cout << " ";
             else // print according to identity
-                cout << " "<< world[i][j]->getIdentity() << " ";
+                cout << world[i][j]->identity;
         }
-        cout << endl << endl;
+        cout << endl;
     }
 }
 
@@ -55,8 +55,8 @@ void Map::initialize()
 
 void Map::random()
 {
-    int CTnum = 10;
-    int Tnum = 60;
+    int CTnum = 20;
+    int Tnum = 50;
     for(int i = 1; i < CTnum-1; i++)
     {
         coord c_randspot(rand()%(maxrow-2) + 1 , rand()%(maxcol-2) + 1); //between 1 and 19
@@ -71,11 +71,20 @@ void Map::random()
 
 bool Map::hasmoved()
 {
-    for(int i = 0; i < maxrow; i++)
-        for(int j = 0; j < maxcol; j++)
-            if(world[i][j]->getMoveStatus() == false) // if not everyone moved
-                return false;
+    for(int i = 1; i < maxrow-1; i++)
+        for(int j = 1; j < maxcol-1; j++)
+            if(world[i][j])
+                if(world[i][j]->getMoveStatus() == false) // if not everyone moved
+                   return false;
     return true;
+}
+
+void Map::setflagsfalse()
+{
+    for(int i = 1; i < maxrow-1; i++)
+        for (int j = 1; j < maxcol-1; j++)
+            if(world[i][j])
+                world[i][j]->setMoveStatus(false);
 }
 
 

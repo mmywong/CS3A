@@ -4,6 +4,7 @@
 #include "terrorist.h"
 #include "counterterrorist.h"
 #include "constants.h"
+#include "coord.h"
 #include <fstream>
 #include <iostream>
 
@@ -19,6 +20,7 @@ public:
     void initialize();
     void random();
     bool hasmoved(); // tells you if everyone has stepped
+    void setflagsfalse();
 private:
     player* world[maxrow][maxcol];
 };

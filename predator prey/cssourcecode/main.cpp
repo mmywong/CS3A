@@ -5,16 +5,25 @@ using namespace std;
 
 int main()
 {
+    char option;
     Map dust;
     dust.initialize();
     dust.random();
     dust.show();
-    char option;
+
     cin>>option;
+
     while(option != 'x')
     {
-        dust.step();
-        dust.show();
+        switch(option)
+        {
+        case 's':
+            dust.step();
+            dust.show();
+            break;
+        default:
+            break;
+        }
         cin>>option;
     }
 

@@ -17,3 +17,11 @@ bool coord::operator ==(const coord &right)
     else
         return false;
 }
+
+bool coord::operator !=(const coord &right)
+{
+    if((i == right.i) && (j == right.j))
+        return false;
+    else
+        return true;
+}

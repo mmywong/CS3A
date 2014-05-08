@@ -5,7 +5,7 @@ using namespace std;
 player::player()
 {
     position = randomspace();
-    identity = ' '; // check, not sure.
+//    identity = ' '; // check, not sure.
     playermoved = false;
     steps = 0;
 }
@@ -14,6 +14,8 @@ player::player(coord pos, char name)
 {
     position = pos;
     identity = name;
+    playermoved = false;
+    steps = 0;
 //    world[pos.i][pos.j] = new player() ????
 }
 
@@ -58,17 +60,17 @@ coord player::findspace(player *world[maxrow][maxcol], coord pos)
     return spaces[randomcoor];
 }
 
-void player::setplayer(player *world[maxrow][maxcol])
-{
-    for(int i = 0; i < maxrow; i++)
-    {
-        for(int j = 0; j < maxcol; j++)
-        {
-            coord pos(i,j);
-            world[i][j] = new player(pos, getIdentity());
-        }
-    }
-}
+//void player::setplayer(player *world[maxrow][maxcol])
+//{
+//    for(int i = 0; i < maxrow; i++)
+//    {
+//        for(int j = 0; j < maxcol; j++)
+//        {
+//            coord pos(i,j);
+//            world[i][j] = new player(pos, getIdentity());
+//        }
+//    }
+//}
 
 coord player::randomspace()
 {
@@ -86,7 +88,7 @@ void player::setPosition(coord newposition)
     position = newposition;
 }
 
-char player::getIdentity() const
+char player::getIdentity()
 {
     return identity;
 }
