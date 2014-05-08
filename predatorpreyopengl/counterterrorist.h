@@ -1,16 +1,5 @@
 #ifndef COUNTERTERRORIST_H
 #define COUNTERTERRORIST_H
-
-//---libraries for opengl---//
-#include <iostream>
-#include <stdio.h>      /* printf, NULL */
-#include <stdlib.h>
-#include <time.h>
-#include <fstream>
-#include <iomanip>
-//#include "mypanelopengl.h"
-//-------------------------//
-
 #include "player.h"
 #include "constants.h"
 
@@ -26,8 +15,10 @@ public:
     void fired(player* world[maxrow][maxcol]); // starve
     void kill(player* world[maxrow][maxcol]); // eat
 
+    bool missionaccomplished();
     coord findterrorist(player* world[maxrow][maxcol], coord currentspot);
     void resetKillCount();
+    void resetKillStep();
 private:
     int killcount; // how many kills
     int killstep; // how many steps since last kill

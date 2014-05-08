@@ -15,6 +15,7 @@ public:
     void fired(player* world[maxrow][maxcol]); // starve
     void kill(player* world[maxrow][maxcol]); // eat
 
+    bool missionaccomplished();
     coord findterrorist(player* world[maxrow][maxcol], coord currentspot);
     void resetKillCount();
     void resetKillStep();

@@ -34,7 +34,9 @@ void MyPanelOpenGL::initializeGL()
 void MyPanelOpenGL::paintGL()
 {
     dust.initialize();
+//    cout << "init" << endl;
     dust.random();
+//    cout << "random" << endl;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
@@ -44,8 +46,8 @@ void MyPanelOpenGL::paintGL()
     {
         for(int j=0; j<maxcol; j++)
         {
-            x = -1.0 + (2.0/maxcol)*j;
-            y = 1.0 - (2.0/maxrow)*i;
+            x = -0.9 + (1.9/maxcol)*j;
+            y = 0.9 - (1.9/maxrow)*i;
 
         if(dust.world[i][j]->identity == 'c')
             glColor3f(0.0f, 0.6f, 0.55f);
@@ -56,27 +58,27 @@ void MyPanelOpenGL::paintGL()
 
         glBegin(GL_QUADS);
           glVertex2f(x,y);                           //top left hand corner
-          glVertex2f(x+(2.0/maxcol), y);             //top right hand corner
-          glVertex2f(x+(2.0/maxcol), y+(2.0/maxrow)); //bottom right hand corner
-          glVertex2f(x, y+(2.0/maxrow));             //bottom left hand corner
+          glVertex2f(x+(1.9/maxcol), y);             //top right hand corner
+          glVertex2f(x+(1.9/maxcol), y+(1.9/maxrow)); //bottom right hand corner
+          glVertex2f(x, y+(1.9/maxrow));             //bottom left hand corner
         glEnd();
 
         }
     }
 }
 
-//void MyPanelOpenGL::keyPressEvent(QKeyEvent *e)
-//{
-//    switch(e->key())
-//    {
-//    case Qt::Key_Down:
-//        run();
-//        break;
-//    case Qt::Key_Up:
-//        stop();
-//        break;
-//    }
-//}
+void MyPanelOpenGL::keyPressEvent(QKeyEvent *e)
+{
+    switch(e->key())
+    {
+    case Qt::Key_Down:
+        run();
+        break;
+    case Qt::Key_Up:
+        stop();
+        break;
+    }
+}
 
 int MyPanelOpenGL::conv_x_j(int x)
 {
@@ -135,14 +137,13 @@ void MyPanelOpenGL::stop()
     }
 }
 
-//void MyPanelOpenGL::process()
-//{
-//    csmap dust;
-//    paintGL();
-//    dust.step();
-//    repaint();
-//    updateGL();
-//}
+void MyPanelOpenGL::process()
+{
+    paintGL();
+    dust.step();
+    repaint();
+    updateGL();
+}
 
 //void MyPanelOpenGL::clear()
 //{

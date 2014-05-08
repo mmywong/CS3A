@@ -22,7 +22,7 @@ signals:
 protected:
     void initializeGL();
     void paintGL();
-//    void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *e);
     void run();
     void stop();
     void resizeGL(int width, int height);
@@ -32,7 +32,7 @@ protected:
 //    void mousePressEvent(QMouseEvent *e);
 
  private slots:
-//    void process();
+    void process();
 //    void clicktostart();
 //    void pause();
 //    void glider();

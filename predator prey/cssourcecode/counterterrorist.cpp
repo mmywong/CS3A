@@ -30,12 +30,13 @@ void counterterrorist::move(player *world[maxrow][maxcol])
 
     if((getMoveStatus()==false) && (terroristlocation != nospace)) // terrorist is found
     {
-
         kill(world);
         setMoveStatus(true);
     }
-//    else
-//        killstep--;
+    else
+    {// didn't kill, but i want to count how many steps since last kill
+        killstep++;
+    }
     currentspot = getPosition();
     if((getMoveStatus()==false) && (emptyspace != nospace)) // an empty space is found to move
     {
@@ -47,14 +48,20 @@ void counterterrorist::move(player *world[maxrow][maxcol])
 
     if(getSteps()%8 == 0)
         recruit(world);
-    if((killstep>3) && (killcount == 0))
+//    if((killcount == 3))
+//    {
+//        resetKillCount();
+//        resetKillStep();
+//    }
+    if((killstep>3) && (killcount == 0)) //BUG: this condition is never reached
         fired(world);
 
+
     //***DEBUG***//
-//    cout << "step : " << getSteps() << endl;
-//    cout << "killstep : " << killstep << endl;
-//    cout << "killcount : " << killcount << endl;
-//    cout << "================================" << endl;
+    cout << "step : " << getSteps() << endl;
+    cout << "killstep : " << killstep << endl;
+    cout << "killcount : " << killcount << endl;
+    cout << "================================" << endl;
 }
 
 void counterterrorist::recruit(player *world[maxrow][maxcol])
@@ -86,11 +93,16 @@ void counterterrorist::kill(player *world[maxrow][maxcol])
     //empty CT's previous location
     world[currentspot.i][currentspot.j] = NULL;
     this->setPosition(terroristlocation);
-    incSteps();
     setMoveStatus(true);
-//    resetKillCount();
+    resetKillCount();
     killcount++;
-    killstep = 0;
+    resetKillStep(); // num of kills since last kill is reset
+    killstep++;
+}
+
+bool counterterrorist::missionaccomplished()
+{
+//    if(killstep)
 }
 
 coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord currentspot)

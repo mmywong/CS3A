@@ -38,6 +38,7 @@ void Map::show()
 
 void Map::initialize()
 {
+    setflagsfalse();
     for(int i=0; i < maxrow; i++)
     {
         coord left(i,0);
@@ -56,7 +57,7 @@ void Map::initialize()
 
 void Map::random()
 {
-    int CTnum = 20;
+    int CTnum = 10;
     int Tnum = 80;
     for(int i = 1; i < CTnum-1; i++)
     {
