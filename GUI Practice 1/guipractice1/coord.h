@@ -1,6 +1,7 @@
 #ifndef COORD_H
 #define COORD_H
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -10,8 +11,8 @@ public:
     coord();
     coord(float newX, float newY);
 
-    friend ostream& operator <<(ostream& out, const& coord c);
-private:
+    friend ostream operator <<(ostream& out, const& coord c);
+//private:
     float x;
     float y;
 };

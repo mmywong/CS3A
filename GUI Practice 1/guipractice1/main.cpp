@@ -13,7 +13,7 @@
 //#include <phonon/mediasource.h>
 //#include <phonon/videowidget.h>
 
-using namespace Phonon;
+using namespace std;
 
 int main(int argc, char ** argv)
 {
@@ -24,19 +24,19 @@ int main(int argc, char ** argv)
 //    thegui.show();
 
 //=========rectangle==========//
-//    glWidget widget;
-//    widget.show();
+    glWidget widget;
+    widget.show();
 
-        app.setApplicationName( QLatin1String("testphonon") );
-        const QUrl url = QUrl( QLatin1String("file:///C:\Users\rynth\Music\Linkin Park Ft. Rakim - Guilty All The Same LeakedEarly.com.mp3") );
-        MediaSource src( url );
-        MediaObject obj;
-        obj.setCurrentSource( src );
+//        app.setApplicationName( QLatin1String("testphonon") );
+//        const QUrl url = QUrl( QLatin1String("file:///C:\Users\rynth\Music\Linkin Park Ft. Rakim - Guilty All The Same LeakedEarly.com.mp3") );
+//        MediaSource src( url );
+//        MediaObject obj;
+//        obj.setCurrentSource( src );
 
-        AudioOutput audio( VideoCategory );
-        Phonon::createPath( &obj, &video );
-        Phonon::createPath( &obj, &audio );
-        obj.play();
+//        AudioOutput audio( VideoCategory );
+//        Phonon::createPath( &obj, &video );
+//        Phonon::createPath( &obj, &audio );
+//        obj.play();
 
 
 
