@@ -21,7 +21,7 @@ void terrorist::move(player *world[maxrow][maxcol])
 
     if(getSteps()%3 == 0)
         recruit(world);
-    if(emptyspace != nospace)
+    if((getMoveStatus()==false) && (emptyspace != nospace))
     {
         world[emptyspace.i][emptyspace.j] = world[getPosition().i][getPosition().j];
         world[getPosition().i][getPosition().j] = NULL;

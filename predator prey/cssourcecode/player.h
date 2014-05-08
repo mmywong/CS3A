@@ -22,17 +22,14 @@ public:
     coord getPosition() const;
     void setPosition(coord newposition);
 //    char getIdentity();
-    void setIdentity(char newidentity);
+//    void setIdentity(char newidentity);
     int getSteps() const;
     void incSteps();
     bool getMoveStatus();
     void setMoveStatus(bool status);
-
     char identity;
-
 private:
     coord position;
-
     int steps;
     bool playermoved;
 };

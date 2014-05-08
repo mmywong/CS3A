@@ -56,7 +56,7 @@ void Map::initialize()
 void Map::random()
 {
     int CTnum = 20;
-    int Tnum = 50;
+    int Tnum = 80;
     for(int i = 1; i < CTnum-1; i++)
     {
         coord c_randspot(rand()%(maxrow-2) + 1 , rand()%(maxcol-2) + 1); //between 1 and 19

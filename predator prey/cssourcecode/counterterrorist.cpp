@@ -31,11 +31,12 @@ void counterterrorist::move(player *world[maxrow][maxcol])
     coord nospace(-1,-1);
     coord terroristlocation = findterrorist(world,currentspot);
 
-    if(terroristlocation != nospace) // terrorist is found
+    if((getMoveStatus()==false) && (terroristlocation != nospace)) // terrorist is found
     {
         kill(world);
+        setMoveStatus(true);
     }
-    if(emptyspace != nospace) // an empty space is found to move
+    if((getMoveStatus()==false) && (emptyspace != nospace)) // an empty space is found to move
     {
         world[emptyspace.i][emptyspace.j] = world[currentspot.i][currentspot.j];
         world[currentspot.i][currentspot.j] = NULL;
