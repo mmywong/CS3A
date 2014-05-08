@@ -91,17 +91,14 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
     {
         for(int lj=currentspot.j-1; lj<currentspot.j+2; lj++)
         {
-            if(world[li][lj]->identity == 't')
+            if(world[li][lj])
             {
-                plotpoint[index].i = li;
-                plotpoint[index].j = lj;
-                index++;
-            }
-            else if(world[li][lj]->identity == 'c')
-            {
-            }
-            else
-            {
+                if(world[li][lj]->identity == 't')
+                {
+                    plotpoint[index].i = li;
+                    plotpoint[index].j = lj;
+                    index++;
+                }
             }
         }
     }

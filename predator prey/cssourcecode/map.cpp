@@ -12,8 +12,8 @@ Map::Map()
 void Map::step()
 {
     setflagsfalse();
-    for(int i = 0; i < maxrow; i++)
-        for(int j = 0; j < maxcol; j++)
+    for(int i = 1; i < maxrow-1; i++)
+        for(int j = 1; j < maxcol-1; j++)
             if(world[i][j])
                 if(world[i][j]->getMoveStatus() == false)
                     world[i][j]->move(world);
