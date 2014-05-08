@@ -64,6 +64,7 @@ void counterterrorist::recruit(player *world[maxrow][maxcol])
 void counterterrorist::fired(player *world[maxrow][maxcol])
 {
     coord currentspot = getPosition();
+    delete world[currentspot.i][currentspot.j];
     world[currentspot.i][currentspot.j] = NULL;
 }
 
