@@ -15,16 +15,14 @@ terrorist::terrorist(coord pos)
 
 void terrorist::move(player *world[maxrow][maxcol])
 {
-    //WOW, there's memory leak here
-    //Say i put something here
     coord nospace(-1,-1);
     coord currentspot = getPosition();
     coord emptyspace = findspace(world,currentspot);
 
     if((getMoveStatus()==false) && (emptyspace != nospace))
     {
-        world[emptyspace.i][emptyspace.j] = world[getPosition().i][getPosition().j];
-        world[getPosition().i][getPosition().j] = NULL;
+        world[emptyspace.i][emptyspace.j] = world[currentspot.i][currentspot.j];
+        world[currentspot.i][currentspot.j] = NULL;
         setMoveStatus(true);
     }
     if(getSteps()%3 == 0)
