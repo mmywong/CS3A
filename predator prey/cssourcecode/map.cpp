@@ -17,7 +17,6 @@ void Map::step()
             if(world[i][j])
                 if(world[i][j]->getMoveStatus() == false)
                     world[i][j]->move(world);
-
 }
 
 void Map::show()
