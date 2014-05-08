@@ -80,6 +80,8 @@ void counterterrorist::kill(player *world[maxrow][maxcol])
     coord currentspot = getPosition();
     coord terroristlocation = findterrorist(world,currentspot);
     //T spot taken over by CT
+    //delete terrorist first before moving CT there
+    delete world[terroristlocation.i][terroristlocation.j] ;
     world[terroristlocation.i][terroristlocation.j] = world[currentspot.i][currentspot.j];
     //empty CT's previous location
     world[currentspot.i][currentspot.j] = NULL;
