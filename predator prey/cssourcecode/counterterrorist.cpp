@@ -58,10 +58,10 @@ void counterterrorist::move(player *world[maxrow][maxcol])
 
 
     //***DEBUG***//
-    cout << "step : " << getSteps() << endl;
-    cout << "killstep : " << killstep << endl;
-    cout << "killcount : " << killcount << endl;
-    cout << "================================" << endl;
+//    cout << "step : " << getSteps() << endl;
+//    cout << "killstep : " << killstep << endl;
+//    cout << "killcount : " << killcount << endl;
+//    cout << "================================" << endl;
 }
 
 void counterterrorist::recruit(player *world[maxrow][maxcol])
