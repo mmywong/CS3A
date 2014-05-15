@@ -3,7 +3,7 @@
 
 using namespace std;
 
-counterterrorist::counterterrorist(coord pos) : player(pos), killcount(0), killstep(0)
+counterterrorist::counterterrorist(coord pos) : player(pos), afk(0)
 {
     identity = 'c';
 }
@@ -14,15 +14,8 @@ counterterrorist::~counterterrorist()
 
 void counterterrorist::move(player *world[maxrow][maxcol])
 {
+    //possible actions : move normally, recruit, fired, kill
     incSteps();
-//    cout << "initial killstep : " << killstep << endl;
-//    cout << "initial killcount : " << killcount << endl;
-    //options : move normally, recruit, fired, kill
-    //if step%8==0 , recruit
-    //if killstep >3 && killcount = 0, fired (delete or set to null)
-    //if  surrounding has a t, kill the t
-    //else move normally
-    //move and recruit first. then if flag is still false, decide to fire or kill
     coord currentspot = getPosition();
     coord emptyspace = findspace(world,currentspot);
     coord nospace(-1,-1);
@@ -34,34 +27,29 @@ void counterterrorist::move(player *world[maxrow][maxcol])
         setMoveStatus(true);
     }
     else
-    {// didn't kill, but i want to count how many steps since last kill
-        killstep++;
-    }
+        afk++;
+
+    //***DEBUG***//
+    cout << "step : " << getSteps() << endl;
+    cout << "afk status : " << afk << endl;
+    cout << "mission failed?" << missionfailed() << endl;
+    cout << "================================" << endl;
+
     currentspot = getPosition();
     if((getMoveStatus()==false) && (emptyspace != nospace)) // an empty space is found to move
     {
         world[emptyspace.i][emptyspace.j] = world[currentspot.i][currentspot.j];
         world[currentspot.i][currentspot.j] = NULL;
-//        incSteps(); // moved to the beginning of fx
         setMoveStatus(true);
     }
 
     if(getSteps()%8 == 0)
         recruit(world);
-//    if((killcount == 3))
-//    {
-//        resetKillCount();
-//        resetKillStep();
-//    }
-    if((killstep>3) && (killcount == 0)) //BUG: this condition is never reached
+    if(missionfailed())
+    {
         fired(world);
-
-
-    //***DEBUG***//
-//    cout << "step : " << getSteps() << endl;
-//    cout << "killstep : " << killstep << endl;
-//    cout << "killcount : " << killcount << endl;
-//    cout << "================================" << endl;
+        afk = 0;
+    }
 }
 
 void counterterrorist::recruit(player *world[maxrow][maxcol])
@@ -73,9 +61,11 @@ void counterterrorist::recruit(player *world[maxrow][maxcol])
 
 void counterterrorist::fired(player *world[maxrow][maxcol])
 {
+    cout << "fired" << endl;
     coord currentspot = getPosition();
-    delete world[currentspot.i][currentspot.j];
+    delete *world[currentspot.i][currentspot.j];
     world[currentspot.i][currentspot.j] = NULL;
+    cout << "my identity after getting fired : " << this->identity << endl;
     // what is my identity now? player still a CT ?
     // test:
 //    this->identity = '#';
@@ -94,15 +84,15 @@ void counterterrorist::kill(player *world[maxrow][maxcol])
     world[currentspot.i][currentspot.j] = NULL;
     this->setPosition(terroristlocation);
     setMoveStatus(true);
-    resetKillCount();
-    killcount++;
-    resetKillStep(); // num of kills since last kill is reset
-    killstep++;
+    afk = 0;
 }
 
-bool counterterrorist::missionaccomplished()
+bool counterterrorist::missionfailed()
 {
-//    if(killstep)
+    if(afk == 3)
+        return true;
+    else
+        return false;
 }
 
 coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord currentspot)
@@ -134,14 +124,3 @@ coord counterterrorist::findterrorist(player *world[maxrow][maxcol], coord curre
         return temp;
     }
 }
-
-void counterterrorist::resetKillCount()
-{
-    killcount = 0;
-}
-
-void counterterrorist::resetKillStep()
-{
-    killstep = 0;
-}
-

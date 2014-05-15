@@ -15,13 +15,10 @@ public:
     void fired(player* world[maxrow][maxcol]); // starve
     void kill(player* world[maxrow][maxcol]); // eat
 
-    bool missionaccomplished();
+    bool missionfailed();
     coord findterrorist(player* world[maxrow][maxcol], coord currentspot);
-    void resetKillCount();
-    void resetKillStep();
 private:
-    int killcount; // how many kills
-    int killstep; // how many steps since last kill
+    int afk; // how many steps without kills
 };
 
 #endif // COUNTERTERRORIST_H
