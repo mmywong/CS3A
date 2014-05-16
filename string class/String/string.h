@@ -12,8 +12,8 @@ public:
     ~String                           ();  //destructor
 
     int StrLen                        ();
-    void StrCpy(String source);
-    void StrCat(String source);
+    void StrCpy                       (String source);
+    void StrCat                       (String source);
     int StrCmp(char *Ptr1, char *Ptr2);
     void SubStr(char *&main, char *sub, int start, int length);
     int Find(char a, char *iPtr, int startPos);
