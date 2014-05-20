@@ -1,15 +1,22 @@
 #ifndef STRING_H
 #define STRING_H
+#include <iostream>
+
+using namespace std;
 
 class String
 {
 public:
     String                            ();
-    String                            (int i);
+    String                            (char* text);
+//    String                            (int i);
     //---big three---//
     String                            (String &copythis); // copy constructor
     const String &operator =          (String& right); //assignment operator
     ~String                           ();  //destructor
+
+    friend istream& operator >>(istream& in, String& s);
+    friend ostream& operator <<(ostream& out, const String& s);
 
     int StrLen                        ();
     void StrCpy                       (String source);

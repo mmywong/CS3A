@@ -8,9 +8,9 @@ String::String()
     str = NULL;
 }
 
-String::String(int i)
+String::String(char* text)
 {
-    str = new char[i];
+    str = text;
 }
 
 String::String(String &copythis)
@@ -34,6 +34,20 @@ String::~String()
     str = NULL;
 }
 
+istream& operator >>(istream &in, String &s)
+{
+    char temp[50];
+    in >> temp;
+    s.str = temp;
+    return in;
+}
+
+ostream& operator <<(ostream &out, const String &s)
+{
+    out << s.str;
+    return out;
+}
+
 int String::StrLen()
 {
     int index = 0;
@@ -54,7 +68,7 @@ void String::StrCpy(String source)
 void String::StrCat(String source)
 {
 //    char *temp = new char[50];
-    String temp(50);
+    String temp;
     int index;
     char* strhead = str;
 
