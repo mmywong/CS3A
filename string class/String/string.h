@@ -19,8 +19,11 @@ public:
     friend ostream& operator <<(ostream& out, const String& s);
 
     int StrLen                        ();
+    int StrLen                        (char* source);
     void StrCpy                       (String source);
+    void StrCpy                       (char* source);
     void StrCat                       (String source);
+    void StrCat                       (char* source);
     int StrCmp(char *Ptr1, char *Ptr2);
     void SubStr(char *&main, char *sub, int start, int length);
     int Find(char a, char *iPtr, int startPos);
