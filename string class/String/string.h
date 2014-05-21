@@ -11,8 +11,8 @@ public:
     String                            (char* text);
 //    String                            (int i);
     //---big three---//
-    String                            (String &copythis); // copy constructor
-    const String &operator =          (String& right); //assignment operator
+//    String                            (String &copythis); // copy constructor
+    String &operator =                (const String &right); //assignment operator
     ~String                           ();  //destructor
 
     friend istream& operator >>(istream& in, String& s);
@@ -24,8 +24,8 @@ public:
     void StrCpy                       (char* source);
     void StrCat                       (String source);
     void StrCat                       (char* source);
-    int StrCmp(char *Ptr1, char *Ptr2);
-    void SubStr(char *&main, char *sub, int start, int length);
+    int StrCmp                        (String comparethis);
+    String SubStr                     (int start, int length);
     int Find(char a, char *iPtr, int startPos);
     int FindStr(char str[], char *iPtr, int startPos); // iPtr is the main array, str[] is the array we want to find
     void toUpper(char *s); // note: old function from CS2. change to pointer later to keep consistency

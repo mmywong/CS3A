@@ -13,14 +13,15 @@ String::String(char* text)
     str = text;
 }
 
-String::String(String &copythis)
-{
-    StrCpy(copythis);
-}
+//String::String(String copythis)
+//{
+//    StrCpy(copythis);
+//}
 
-const String &String::operator =(String &right)
+String &String::operator =(const String &right)
 {
     StrCpy(right);
+    return *this;
 }
 
 String::~String()
@@ -43,6 +44,11 @@ istream& operator >>(istream &in, String &s)
 {
     char* temp = new char[100];
     cin.getline(temp,100);
+    /*
+    int index = 0;
+    while (*(temp+index) != '\0')
+         index++;
+    *(temp + index) = '\0';*/
     s.str = temp;
     return in;
 }
@@ -62,7 +68,6 @@ int String::StrLen(char *source)
 {
     if(str == NULL)
         return 0;
-
     int index = 0;
     while (*(source+index) != '\0')
          index++;
@@ -108,5 +113,36 @@ void String::StrCat(char *source)
         str = temp;
 //        delete [] temp;
     }
+}
+
+int String::StrCmp(String comparethis)
+{
+    char* walker = str;
+    char* cwalker = comparethis.str;
+    do
+    {
+        if(*walker == *cwalker)
+        {
+            walker++;
+            cwalker++;
+        }
+        else if(*walker > *cwalker)
+            return 1;
+        else
+            return -1;
+
+    }while(*walker != NULL || *cwalker != NULL);
+}
+
+String String::SubStr(int start, int length)
+{
+    char* substring = new char[100];
+    char* subwalker = substring;
+    char* walker = str + start;
+    for(int i = 0; i < length; i++)
+        *subwalker++ = *walker++;
+    *subwalker = NULL;
+    String substr(substring);
+    return substr;
 }
 
